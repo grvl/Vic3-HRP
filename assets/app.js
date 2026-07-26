@@ -11,6 +11,7 @@ const CONFIG = {
   sheetId: '1AKQuosLZ9HvXEDxx-GfRSqt710gxvuXucCxbr_e0cag',
   tabs: { groups: 'Groups', rivalries: 'Rivalries', details: 'Details' },
   snapshot: 'data/snapshot.json',
+  lawStances: 'data/law-stances.json',
   cacheKey: 'v3ig.cache.v1',
   cacheTtlMs: 10 * 60 * 1000,
 };
@@ -46,6 +47,21 @@ const ICON_OVERRIDES = {
   'Shojoi': 'isolationist',                      // closest available match, not a confirmed 1:1
 };
 const iconCache = new Map();
+
+/** Law stance scale, worst to best — used for both display and sort order. */
+const STANCES = {
+  strongly_disapprove: { label: 'Strongly Disapproves', short: '−−', rank: 0 },
+  disapprove:           { label: 'Disapproves',          short: '−',  rank: 1 },
+  neutral:              { label: 'Neutral',              short: '·',  rank: 2 },
+  approve:              { label: 'Approves',             short: '+',  rank: 3 },
+  strongly_approve:     { label: 'Strongly Approves',    short: '++', rank: 4 },
+};
+
+/** "edo_social_system" -> "Edo Social System", with a couple of apostrophe fixes. */
+function titleCase(key) {
+  return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+    .replace(/\bWomens\b/g, "Women's").replace(/\bChildrens\b/g, "Children's");
+}
 
 /** Resolve an ideology name to its icon URL, or null if nothing matches. */
 function iconFor(name) {
@@ -407,7 +423,7 @@ function normalise(raw) {
 
 /* -------------------------------------------------------------------- state */
 
-const state = { model: null, meta: null, view: 'ideology', selected: null, query: '' };
+const state = { model: null, meta: null, view: 'ideology', selected: null, query: '', lawStances: {} };
 
 /* ------------------------------------------------------------------ render */
 
@@ -480,6 +496,46 @@ function frenemyCard({ name, bond, rival }) {
   return card;
 }
 
+/** Law-by-law stances from the game's own character-ideology data (bundled, not sheet-driven). */
+function renderLawStances(root, ideologyName) {
+  const groups = state.lawStances[ideologyName];
+
+  const section = el('section', 'section law-section');
+  const h = el('div', 'section-head');
+  h.append(el('h2', null, 'Law Stances'));
+  section.append(h);
+  section.append(el('p', 'section-sub',
+    'How this ideology\'s characters feel about each law, taken directly from the game files.'));
+
+  if (!groups || !Object.keys(groups).length) {
+    section.append(el('div', 'callout', 'No law-stance data bundled for this ideology yet.'));
+    root.append(section);
+    return;
+  }
+
+  const grid = el('div', 'law-grid');
+  for (const [groupKey, laws] of Object.entries(groups)) {
+    const card = el('div', 'law-card');
+    card.append(el('h3', null, titleCase(groupKey)));
+    const rows = el('div', 'law-rows');
+    const entries = Object.entries(laws)
+      .sort((a, b) => STANCES[b[1]]?.rank - STANCES[a[1]]?.rank || a[0].localeCompare(b[0]));
+    for (const [lawKey, stance] of entries) {
+      const info = STANCES[stance] || { label: stance, short: '?', rank: 2 };
+      const row = el('div', 'law-row');
+      row.append(el('span', 'law-name', titleCase(lawKey)));
+      const pill = el('span', `stance-pill stance-${stance}`, info.short);
+      pill.title = info.label;
+      row.append(pill);
+      rows.append(row);
+    }
+    card.append(rows);
+    grid.append(card);
+  }
+  section.append(grid);
+  root.append(section);
+}
+
 function renderIdeology(root) {
   const rec = state.model.ideologies.get(state.selected);
   if (!rec) {
@@ -511,6 +567,8 @@ function renderIdeology(root) {
   }
   head.append(chips);
   root.append(head);
+
+  renderLawStances(root, rec.name);
 
   const both = new Set([...rec.bonds.keys()].filter(n => rec.rivals.has(n)));
   const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
@@ -889,7 +947,13 @@ async function boot({ force = false } = {}) {
   const btn = $('#refreshBtn');
   btn.classList.add('is-busy');
   try {
-    const raw = await loadData({ force });
+    // Law stances are bundled game data, not sheet data — no live-fetch, no cache-busting.
+    // Load it alongside the sheet but don't let its absence block the rest of the page.
+    const [raw] = await Promise.all([
+      loadData({ force }),
+      fetch(CONFIG.lawStances).then(r => r.ok ? r.json() : {}).then(j => { state.lawStances = j; })
+        .catch(() => { state.lawStances = {}; }),
+    ]);
     state.meta = { source: raw.source, at: raw.at, error: raw.error };
     state.model = normalise(raw);
 

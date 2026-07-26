@@ -1,0 +1,1602 @@
+{
+ "Abolitionist": {
+  "slavery": {
+   "slavery_banned": "neutral",
+   "legacy_slavery": "disapprove",
+   "colonial_slavery": "disapprove",
+   "debt_slavery": "strongly_disapprove",
+   "slave_trade": "strongly_disapprove"
+  },
+  "land_reform": {
+   "serfdom": "strongly_disapprove",
+   "tenant_farmers": "neutral",
+   "peasant_proprietorship": "neutral",
+   "collectivized_agriculture": "neutral",
+   "commercialized_agriculture": "neutral"
+  }
+ },
+ "Anarchist": {
+  "citizenship": {
+   "ethnostate": "strongly_disapprove",
+   "national_supremacy": "strongly_disapprove",
+   "subjecthood": "strongly_disapprove",
+   "racial_segregation": "disapprove",
+   "cultural_exclusion": "approve",
+   "multicultural": "strongly_approve"
+  },
+  "distribution_of_power": {
+   "anarchy": "strongly_approve",
+   "universal_suffrage": "neutral",
+   "census_voting": "disapprove",
+   "wealth_voting": "disapprove",
+   "landed_voting": "disapprove",
+   "technocracy": "strongly_disapprove",
+   "oligarchy": "strongly_disapprove",
+   "autocracy": "strongly_disapprove",
+   "single_party_state": "disapprove"
+  },
+  "economic_system": {
+   "cooperative_ownership": "strongly_approve",
+   "command_economy": "disapprove",
+   "interventionism": "strongly_disapprove",
+   "agrarianism": "neutral",
+   "traditionalism": "strongly_disapprove",
+   "laissez_faire": "strongly_disapprove",
+   "industry_banned": "disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "disapprove",
+   "guild_system": "strongly_disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "strongly_disapprove",
+   "right_to_associate": "neutral",
+   "factory_councils": "approve"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_approve",
+   "right_of_assembly": "approve",
+   "censorship": "disapprove",
+   "outlawed_dissent": "strongly_disapprove"
+  },
+  "policing": {
+   "no_police": "approve",
+   "local_police": "disapprove",
+   "dedicated_police": "disapprove",
+   "militarized_police": "strongly_disapprove"
+  },
+  "governance_principles": {
+   "monarchy": "strongly_disapprove",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "strongly_disapprove",
+   "social_monarchy": "strongly_disapprove",
+   "theocracy": "strongly_disapprove",
+   "council_republic": "strongly_approve"
+  }
+ },
+ "Authoritarian": {
+  "distribution_of_power": {
+   "anarchy": "strongly_disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "census_voting": "strongly_disapprove",
+   "wealth_voting": "disapprove",
+   "landed_voting": "disapprove",
+   "technocracy": "neutral",
+   "oligarchy": "approve",
+   "autocracy": "approve",
+   "single_party_state": "approve"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_disapprove",
+   "right_of_assembly": "disapprove",
+   "censorship": "approve",
+   "outlawed_dissent": "strongly_approve"
+  },
+  "internal_security": {
+   "guaranteed_liberties": "strongly_disapprove",
+   "no_home_affairs": "neutral",
+   "national_guard": "approve",
+   "secret_police": "strongly_approve"
+  }
+ },
+ "Bonapartist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "social_monarchy": "strongly_approve",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "distribution_of_power": {
+   "autocracy": "disapprove",
+   "oligarchy": "disapprove",
+   "landed_voting": "neutral",
+   "wealth_voting": "neutral",
+   "single_party_state": "strongly_approve",
+   "census_voting": "approve",
+   "universal_suffrage": "strongly_approve",
+   "anarchy": "strongly_disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "army_model": {
+   "mass_conscription": "strongly_approve",
+   "professional_army": "approve",
+   "national_militia": "disapprove",
+   "peasant_levies": "disapprove"
+  },
+  "navy_model": {
+   "merchant_navy": "strongly_disapprove",
+   "jeune_ecole": "neutral",
+   "professional_navy": "approve",
+   "diplomatic_navy": "approve"
+  },
+  "economic_system": {
+   "laissez_faire": "neutral",
+   "interventionism": "strongly_approve",
+   "agrarianism": "disapprove",
+   "traditionalism": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "industry_banned": "strongly_disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "disapprove",
+   "guild_system": "disapprove",
+   "anti_strike_laws": "approve",
+   "corporatized_unions": "approve",
+   "right_to_associate": "neutral",
+   "factory_councils": "strongly_disapprove"
+  }
+ },
+ "Carlist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "social_monarchy": "approve",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "economic_system": {
+   "traditionalism": "strongly_approve",
+   "agrarianism": "approve",
+   "interventionism": "disapprove",
+   "industry_banned": "disapprove",
+   "laissez_faire": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "extraction_economy": "disapprove"
+  },
+  "distribution_of_power": {
+   "oligarchy": "approve",
+   "autocracy": "strongly_approve",
+   "single_party_state": "strongly_disapprove",
+   "landed_voting": "disapprove",
+   "wealth_voting": "strongly_disapprove",
+   "census_voting": "strongly_disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "citizenship": {
+   "ethnostate": "neutral",
+   "subjecthood": "approve",
+   "national_supremacy": "neutral",
+   "racial_segregation": "neutral",
+   "cultural_exclusion": "neutral",
+   "multicultural": "disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  }
+ },
+ "Carlist II": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "theocracy": "approve",
+   "council_republic": "strongly_disapprove"
+  },
+  "economic_system": {
+   "traditionalism": "neutral",
+   "agrarianism": "strongly_approve",
+   "interventionism": "approve",
+   "industry_banned": "disapprove",
+   "laissez_faire": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "extraction_economy": "disapprove"
+  },
+  "distribution_of_power": {
+   "oligarchy": "approve",
+   "autocracy": "strongly_approve",
+   "single_party_state": "neutral",
+   "landed_voting": "neutral",
+   "wealth_voting": "disapprove",
+   "census_voting": "disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "citizenship": {
+   "ethnostate": "neutral",
+   "subjecthood": "approve",
+   "national_supremacy": "neutral",
+   "racial_segregation": "neutral",
+   "cultural_exclusion": "neutral",
+   "multicultural": "disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  }
+ },
+ "Communist": {
+  "labor_rights": {
+   "worker_protections": "strongly_approve",
+   "regulatory_bodies": "approve",
+   "no_workers_rights": "neutral"
+  },
+  "governance_principles": {
+   "monarchy": "strongly_disapprove",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "strongly_disapprove",
+   "social_monarchy": "strongly_disapprove",
+   "theocracy": "strongly_disapprove",
+   "council_republic": "strongly_approve"
+  },
+  "economic_system": {
+   "command_economy": "strongly_approve",
+   "cooperative_ownership": "strongly_approve",
+   "interventionism": "neutral",
+   "agrarianism": "disapprove",
+   "traditionalism": "disapprove",
+   "laissez_faire": "strongly_disapprove",
+   "industry_banned": "strongly_disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_disapprove",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "neutral",
+   "state_atheism": "approve"
+  },
+  "land_reform": {
+   "serfdom": "strongly_disapprove",
+   "commercialized_agriculture": "disapprove",
+   "tenant_farmers": "disapprove",
+   "peasant_proprietorship": "neutral",
+   "collectivized_agriculture": "approve"
+  },
+  "labour_associations": {
+   "combination_acts": "disapprove",
+   "guild_system": "strongly_disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "strongly_disapprove",
+   "right_to_associate": "neutral",
+   "factory_councils": "approve"
+  }
+ },
+ "Corporatist": {
+  "governance_principles": {
+   "theocracy": "neutral",
+   "monarchy": "neutral",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "neutral",
+   "corporate_state": "approve",
+   "social_monarchy": "approve",
+   "council_republic": "strongly_disapprove"
+  },
+  "education_system": {
+   "public_schools": "approve",
+   "religious_schools": "approve",
+   "private_schools": "neutral",
+   "no_schools": "disapprove"
+  },
+  "labor_rights": {
+   "no_workers_rights": "neutral",
+   "regulatory_bodies": "approve",
+   "worker_protections": "neutral"
+  },
+  "welfare": {
+   "poor_laws": "neutral",
+   "no_social_security": "disapprove",
+   "wage_subsidies": "approve",
+   "old_age_pension": "neutral"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "approve",
+   "anti_strike_laws": "approve",
+   "corporatized_unions": "strongly_approve",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  }
+ },
+ "Despotic Utopian": {
+  "distribution_of_power": {
+   "anarchy": "strongly_disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "census_voting": "strongly_disapprove",
+   "wealth_voting": "disapprove",
+   "landed_voting": "disapprove",
+   "technocracy": "approve",
+   "oligarchy": "approve",
+   "autocracy": "approve",
+   "single_party_state": "approve"
+  },
+  "internal_security": {
+   "guaranteed_liberties": "strongly_disapprove",
+   "no_home_affairs": "neutral",
+   "national_guard": "approve",
+   "secret_police": "strongly_approve"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_disapprove",
+   "freedom_of_conscience": "neutral",
+   "state_atheism": "neutral",
+   "total_separation": "approve"
+  },
+  "citizenship": {
+   "ethnostate": "strongly_disapprove",
+   "national_supremacy": "strongly_disapprove",
+   "racial_segregation": "disapprove",
+   "cultural_exclusion": "neutral",
+   "multicultural": "approve",
+   "subjecthood": "disapprove"
+  },
+  "trade_policy": {
+   "isolationism": "strongly_approve",
+   "mercantilism": "approve",
+   "protectionism": "neutral",
+   "free_trade": "strongly_disapprove"
+  }
+ },
+ "Ethno-Nationalist": {
+  "citizenship": {
+   "ethnostate": "strongly_approve",
+   "national_supremacy": "approve",
+   "racial_segregation": "approve",
+   "cultural_exclusion": "disapprove",
+   "multicultural": "strongly_disapprove",
+   "subjecthood": "strongly_disapprove"
+  },
+  "migration": {
+   "migration_controls": "strongly_approve",
+   "closed_borders": "approve",
+   "no_migration_controls": "disapprove"
+  }
+ },
+ "Fascist": {
+  "internal_security": {
+   "guaranteed_liberties": "strongly_disapprove",
+   "no_home_affairs": "neutral",
+   "national_guard": "approve",
+   "secret_police": "strongly_approve"
+  },
+  "distribution_of_power": {
+   "single_party_state": "strongly_approve",
+   "autocracy": "approve",
+   "oligarchy": "neutral",
+   "technocracy": "neutral",
+   "anarchy": "strongly_disapprove",
+   "universal_suffrage": "disapprove",
+   "census_voting": "disapprove",
+   "wealth_voting": "disapprove",
+   "landed_voting": "disapprove"
+  },
+  "citizenship": {
+   "ethnostate": "strongly_approve",
+   "national_supremacy": "approve",
+   "subjecthood": "strongly_disapprove",
+   "racial_segregation": "approve",
+   "cultural_exclusion": "disapprove",
+   "multicultural": "strongly_disapprove"
+  },
+  "army_model": {
+   "mass_conscription": "strongly_approve",
+   "professional_army": "approve",
+   "national_militia": "disapprove",
+   "peasant_levies": "disapprove"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_disapprove",
+   "right_of_assembly": "disapprove",
+   "censorship": "neutral",
+   "outlawed_dissent": "strongly_approve"
+  },
+  "governance_principles": {
+   "theocracy": "disapprove",
+   "monarchy": "neutral",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "neutral",
+   "corporate_state": "strongly_approve",
+   "social_monarchy": "approve",
+   "council_republic": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "approve",
+   "anti_strike_laws": "approve",
+   "corporatized_unions": "strongly_approve",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  }
+ },
+ "Feminist": {
+  "rights_of_women": {
+   "womens_suffrage": "strongly_approve",
+   "women_in_the_workplace": "neutral",
+   "women_own_property": "disapprove",
+   "no_womens_rights": "strongly_disapprove"
+  }
+ },
+ "Humanitarian": {
+  "citizenship": {
+   "ethnostate": "strongly_disapprove",
+   "national_supremacy": "strongly_disapprove",
+   "racial_segregation": "disapprove",
+   "cultural_exclusion": "neutral",
+   "multicultural": "approve",
+   "subjecthood": "disapprove"
+  },
+  "internal_security": {
+   "guaranteed_liberties": "approve",
+   "national_guard": "neutral",
+   "no_home_affairs": "neutral",
+   "secret_police": "strongly_disapprove"
+  },
+  "free_speech": {
+   "protected_speech": "approve",
+   "right_of_assembly": "neutral",
+   "censorship": "disapprove",
+   "outlawed_dissent": "strongly_disapprove"
+  },
+  "rights_of_women": {
+   "no_womens_rights": "strongly_disapprove",
+   "women_own_property": "disapprove",
+   "women_in_the_workplace": "neutral",
+   "womens_suffrage": "approve"
+  },
+  "childrens_rights": {
+   "child_labor_allowed": "strongly_disapprove",
+   "restricted_child_labor": "disapprove",
+   "compulsory_primary_school": "approve"
+  },
+  "migration": {
+   "closed_borders": "strongly_disapprove",
+   "migration_controls": "disapprove",
+   "no_migration_controls": "approve"
+  }
+ },
+ "Humanitarian Royalist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "disapprove",
+   "social_monarchy": "approve",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "citizenship": {
+   "ethnostate": "strongly_disapprove",
+   "national_supremacy": "strongly_disapprove",
+   "racial_segregation": "disapprove",
+   "cultural_exclusion": "neutral",
+   "multicultural": "approve",
+   "subjecthood": "neutral"
+  },
+  "free_speech": {
+   "protected_speech": "approve",
+   "right_of_assembly": "neutral",
+   "censorship": "disapprove",
+   "outlawed_dissent": "strongly_disapprove"
+  },
+  "rights_of_women": {
+   "no_womens_rights": "strongly_disapprove",
+   "women_own_property": "disapprove",
+   "women_in_the_workplace": "neutral",
+   "womens_suffrage": "approve"
+  },
+  "childrens_rights": {
+   "child_labor_allowed": "strongly_disapprove",
+   "restricted_child_labor": "disapprove",
+   "compulsory_primary_school": "approve"
+  }
+ },
+ "Ilustrado": {
+  "citizenship": {
+   "multicultural": "disapprove",
+   "ethnostate": "strongly_disapprove",
+   "national_supremacy": "disapprove",
+   "racial_segregation": "neutral",
+   "cultural_exclusion": "approve",
+   "subjecthood": "neutral"
+  },
+  "church_and_state": {
+   "state_atheism": "neutral",
+   "total_separation": "approve",
+   "freedom_of_conscience": "strongly_approve",
+   "state_religion": "neutral"
+  },
+  "education_system": {
+   "public_schools": "approve",
+   "private_schools": "approve",
+   "no_schools": "disapprove",
+   "religious_schools": "neutral"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_approve",
+   "right_of_assembly": "approve",
+   "censorship": "disapprove",
+   "outlawed_dissent": "strongly_disapprove"
+  }
+ },
+ "Integralist": {
+  "internal_security": {
+   "guaranteed_liberties": "strongly_disapprove",
+   "no_home_affairs": "neutral",
+   "national_guard": "approve",
+   "secret_police": "strongly_approve"
+  },
+  "policing": {
+   "militarized_police": "strongly_approve",
+   "local_police": "approve",
+   "dedicated_police": "approve",
+   "no_police": "disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  },
+  "citizenship": {
+   "cultural_exclusion": "neutral",
+   "racial_segregation": "neutral",
+   "multicultural": "disapprove",
+   "ethnostate": "disapprove",
+   "national_supremacy": "disapprove",
+   "subjecthood": "approve"
+  },
+  "distribution_of_power": {
+   "autocracy": "strongly_approve",
+   "single_party_state": "approve",
+   "oligarchy": "approve",
+   "landed_voting": "neutral",
+   "wealth_voting": "disapprove",
+   "technocracy": "strongly_disapprove",
+   "census_voting": "strongly_disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove"
+  },
+  "governance_principles": {
+   "theocracy": "approve",
+   "monarchy": "approve",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "neutral",
+   "corporate_state": "neutral",
+   "social_monarchy": "strongly_approve",
+   "council_republic": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "approve",
+   "anti_strike_laws": "approve",
+   "corporatized_unions": "strongly_approve",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  }
+ },
+ "Jacksonian Democrat": {
+  "governance_principles": {
+   "monarchy": "strongly_disapprove",
+   "theocracy": "strongly_disapprove",
+   "council_republic": "strongly_disapprove",
+   "parliamentary_republic": "neutral",
+   "corporate_state": "disapprove",
+   "social_monarchy": "strongly_disapprove",
+   "presidential_republic": "approve"
+  },
+  "distribution_of_power": {
+   "universal_suffrage": "strongly_approve",
+   "census_voting": "approve",
+   "wealth_voting": "neutral",
+   "landed_voting": "disapprove",
+   "anarchy": "strongly_disapprove",
+   "oligarchy": "strongly_disapprove",
+   "autocracy": "strongly_disapprove",
+   "single_party_state": "disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "bureaucracy": {
+   "elected_bureaucrats": "approve",
+   "appointed_bureaucrats": "neutral",
+   "hereditary_bureaucrats": "disapprove"
+  },
+  "slavery": {
+   "slavery_banned": "strongly_disapprove",
+   "debt_slavery": "strongly_disapprove",
+   "slave_trade": "neutral",
+   "legacy_slavery": "approve",
+   "colonial_slavery": "approve"
+  },
+  "citizenship": {
+   "ethnostate": "strongly_disapprove",
+   "national_supremacy": "neutral",
+   "subjecthood": "strongly_disapprove",
+   "racial_segregation": "approve",
+   "cultural_exclusion": "neutral",
+   "multicultural": "strongly_disapprove"
+  }
+ },
+ "Jingoist": {
+  "army_model": {
+   "mass_conscription": "strongly_approve",
+   "professional_army": "approve",
+   "national_militia": "neutral",
+   "peasant_levies": "disapprove"
+  },
+  "navy_model": {
+   "merchant_navy": "strongly_disapprove",
+   "jeune_ecole": "neutral",
+   "professional_navy": "strongly_approve",
+   "diplomatic_navy": "approve"
+  },
+  "colonization": {
+   "no_colonial_affairs": "neutral",
+   "colonial_resettlement": "approve",
+   "frontier_colonization": "approve",
+   "colonial_exploitation": "strongly_approve"
+  }
+ },
+ "Land Reformer": {
+  "taxation": {
+   "land_based_taxation": "strongly_disapprove",
+   "consumption_based_taxation": "neutral",
+   "per_capita_based_taxation": "neutral",
+   "proportional_taxation": "neutral",
+   "graduated_taxation": "neutral"
+  },
+  "land_reform": {
+   "serfdom": "strongly_disapprove",
+   "tenant_farmers": "disapprove",
+   "commercialized_agriculture": "neutral",
+   "peasant_proprietorship": "approve",
+   "collectivized_agriculture": "approve"
+  }
+ },
+ "Legitimist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "social_monarchy": "approve",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "distribution_of_power": {
+   "autocracy": "strongly_approve",
+   "oligarchy": "neutral",
+   "single_party_state": "disapprove",
+   "landed_voting": "strongly_disapprove",
+   "wealth_voting": "strongly_disapprove",
+   "census_voting": "strongly_disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_disapprove",
+   "right_of_assembly": "disapprove",
+   "censorship": "approve",
+   "outlawed_dissent": "strongly_approve"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "approve",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  }
+ },
+ "Liberal": {
+  "distribution_of_power": {
+   "universal_suffrage": "approve",
+   "census_voting": "approve",
+   "wealth_voting": "approve",
+   "landed_voting": "approve",
+   "single_party_state": "disapprove",
+   "technocracy": "disapprove",
+   "oligarchy": "disapprove",
+   "autocracy": "strongly_disapprove",
+   "anarchy": "strongly_disapprove"
+  },
+  "bureaucracy": {
+   "elected_bureaucrats": "approve",
+   "appointed_bureaucrats": "disapprove",
+   "hereditary_bureaucrats": "strongly_disapprove"
+  },
+  "internal_security": {
+   "guaranteed_liberties": "strongly_approve",
+   "no_home_affairs": "neutral",
+   "national_guard": "approve",
+   "secret_police": "disapprove"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_approve",
+   "right_of_assembly": "approve",
+   "censorship": "neutral",
+   "outlawed_dissent": "disapprove"
+  }
+ },
+ "Luddite": {
+  "economic_system": {
+   "industry_banned": "strongly_approve",
+   "agrarianism": "approve",
+   "cooperative_ownership": "neutral",
+   "traditionalism": "neutral",
+   "laissez_faire": "strongly_disapprove",
+   "interventionism": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "extraction_economy": "disapprove"
+  },
+  "trade_policy": {
+   "free_trade": "strongly_disapprove",
+   "mercantilism": "neutral",
+   "protectionism": "approve",
+   "isolationism": "strongly_approve"
+  }
+ },
+ "Market Liberal": {
+  "economic_system": {
+   "laissez_faire": "strongly_approve",
+   "interventionism": "neutral",
+   "agrarianism": "disapprove",
+   "traditionalism": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "industry_banned": "strongly_disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "childrens_rights": {
+   "child_labor_allowed": "approve",
+   "restricted_child_labor": "disapprove",
+   "compulsory_primary_school": "strongly_disapprove"
+  },
+  "trade_policy": {
+   "free_trade": "strongly_approve",
+   "mercantilism": "disapprove",
+   "protectionism": "disapprove",
+   "isolationism": "strongly_disapprove"
+  },
+  "navy_model": {
+   "merchant_navy": "approve",
+   "jeune_ecole": "neutral",
+   "professional_navy": "disapprove",
+   "diplomatic_navy": "neutral"
+  },
+  "labor_rights": {
+   "worker_protections": "strongly_disapprove",
+   "regulatory_bodies": "disapprove",
+   "no_workers_rights": "neutral"
+  },
+  "land_reform": {
+   "collectivized_agriculture": "strongly_disapprove",
+   "serfdom": "disapprove",
+   "tenant_farmers": "neutral",
+   "peasant_proprietorship": "neutral",
+   "commercialized_agriculture": "approve"
+  },
+  "labour_associations": {
+   "combination_acts": "approve",
+   "guild_system": "strongly_disapprove",
+   "anti_strike_laws": "neutral",
+   "factory_councils": "strongly_disapprove",
+   "corporatized_unions": "disapprove",
+   "right_to_associate": "strongly_disapprove"
+  }
+ },
+ "Miguelist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "social_monarchy": "approve",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "economic_system": {
+   "traditionalism": "strongly_approve",
+   "agrarianism": "approve",
+   "interventionism": "disapprove",
+   "industry_banned": "disapprove",
+   "laissez_faire": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "extraction_economy": "disapprove"
+  },
+  "distribution_of_power": {
+   "oligarchy": "approve",
+   "autocracy": "strongly_approve",
+   "single_party_state": "strongly_disapprove",
+   "landed_voting": "disapprove",
+   "wealth_voting": "strongly_disapprove",
+   "census_voting": "strongly_disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "citizenship": {
+   "ethnostate": "neutral",
+   "subjecthood": "approve",
+   "national_supremacy": "neutral",
+   "racial_segregation": "neutral",
+   "cultural_exclusion": "neutral",
+   "multicultural": "disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  }
+ },
+ "Miguelist II": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "economic_system": {
+   "traditionalism": "neutral",
+   "agrarianism": "strongly_approve",
+   "interventionism": "approve",
+   "industry_banned": "disapprove",
+   "laissez_faire": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "extraction_economy": "disapprove"
+  },
+  "distribution_of_power": {
+   "oligarchy": "approve",
+   "autocracy": "strongly_approve",
+   "single_party_state": "neutral",
+   "landed_voting": "neutral",
+   "wealth_voting": "disapprove",
+   "census_voting": "disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "citizenship": {
+   "ethnostate": "neutral",
+   "subjecthood": "approve",
+   "national_supremacy": "neutral",
+   "racial_segregation": "neutral",
+   "cultural_exclusion": "neutral",
+   "multicultural": "disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  }
+ },
+ "Mitogaku": {
+  "migration": {
+   "closed_borders": "approve",
+   "migration_controls": "neutral",
+   "no_migration_controls": "disapprove"
+  },
+  "economic_system": {
+   "extraction_economy": "strongly_disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "neutral",
+   "interventionism": "approve",
+   "agrarianism": "disapprove",
+   "traditionalism": "strongly_disapprove",
+   "laissez_faire": "neutral",
+   "industry_banned": "strongly_disapprove"
+  },
+  "taxation": {
+   "per_capita_based_taxation": "approve",
+   "proportional_taxation": "strongly_approve",
+   "graduated_taxation": "strongly_approve",
+   "land_based_taxation": "neutral",
+   "consumption_based_taxation": "disapprove"
+  },
+  "education_system": {
+   "public_schools": "approve",
+   "private_schools": "neutral",
+   "religious_schools": "neutral",
+   "no_schools": "disapprove"
+  },
+  "army_model": {
+   "national_militia": "disapprove",
+   "professional_army": "neutral",
+   "peasant_levies": "disapprove",
+   "mass_conscription": "approve"
+  },
+  "navy_model": {
+   "merchant_navy": "disapprove",
+   "jeune_ecole": "approve",
+   "professional_navy": "neutral",
+   "diplomatic_navy": "neutral"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "disapprove",
+   "intermediate_edo_system": "neutral",
+   "lax_edo_system": "approve"
+  }
+ },
+ "Modernizer": {
+  "trade_policy": {
+   "protectionism": "approve",
+   "isolationism": "strongly_disapprove",
+   "mercantilism": "disapprove",
+   "free_trade": "neutral"
+  },
+  "economic_system": {
+   "extraction_economy": "strongly_disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "neutral",
+   "interventionism": "approve",
+   "agrarianism": "disapprove",
+   "traditionalism": "strongly_disapprove",
+   "laissez_faire": "neutral",
+   "industry_banned": "strongly_disapprove"
+  },
+  "taxation": {
+   "per_capita_based_taxation": "approve",
+   "proportional_taxation": "strongly_approve",
+   "graduated_taxation": "strongly_approve",
+   "land_based_taxation": "neutral",
+   "consumption_based_taxation": "disapprove"
+  },
+  "education_system": {
+   "public_schools": "approve",
+   "private_schools": "neutral",
+   "religious_schools": "neutral",
+   "no_schools": "disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "neutral",
+   "factory_councils": "strongly_disapprove"
+  },
+  "land_reform": {
+   "serfdom": "disapprove",
+   "tenant_farmers": "neutral",
+   "peasant_proprietorship": "neutral",
+   "collectivized_agriculture": "disapprove",
+   "commercialized_agriculture": "approve"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "disapprove",
+   "intermediate_edo_system": "neutral",
+   "lax_edo_system": "approve"
+  }
+ },
+ "Nihilist": {
+  "governance_principles": {
+   "theocracy": "strongly_disapprove",
+   "monarchy": "strongly_disapprove",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "neutral",
+   "corporate_state": "disapprove",
+   "social_monarchy": "strongly_disapprove",
+   "council_republic": "approve"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_disapprove",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "neutral",
+   "state_atheism": "strongly_approve"
+  },
+  "caste_hegemony": {
+   "hindu_caste_enforced": "strongly_disapprove",
+   "hindu_caste_codified": "disapprove",
+   "hindu_caste_not_enforced": "neutral",
+   "affirmative_action": "neutral"
+  }
+ },
+ "Orleanist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "social_monarchy": "neutral",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  },
+  "distribution_of_power": {
+   "autocracy": "disapprove",
+   "oligarchy": "neutral",
+   "landed_voting": "approve",
+   "wealth_voting": "approve",
+   "census_voting": "neutral",
+   "universal_suffrage": "disapprove",
+   "anarchy": "strongly_disapprove",
+   "single_party_state": "disapprove",
+   "technocracy": "strongly_disapprove"
+  },
+  "economic_system": {
+   "laissez_faire": "strongly_approve",
+   "interventionism": "neutral",
+   "agrarianism": "disapprove",
+   "traditionalism": "disapprove",
+   "cooperative_ownership": "strongly_disapprove",
+   "command_economy": "strongly_disapprove",
+   "industry_banned": "strongly_disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "trade_policy": {
+   "free_trade": "strongly_approve",
+   "mercantilism": "disapprove",
+   "protectionism": "disapprove",
+   "isolationism": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "approve",
+   "guild_system": "disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  }
+ },
+ "Pacifist": {
+  "army_model": {
+   "national_militia": "approve",
+   "professional_army": "disapprove",
+   "peasant_levies": "disapprove",
+   "mass_conscription": "disapprove"
+  },
+  "navy_model": {
+   "merchant_navy": "approve",
+   "jeune_ecole": "neutral",
+   "professional_navy": "disapprove",
+   "diplomatic_navy": "approve"
+  },
+  "colonization": {
+   "no_colonial_affairs": "approve",
+   "colonial_resettlement": "strongly_disapprove",
+   "colonial_exploitation": "strongly_disapprove",
+   "frontier_colonization": "strongly_disapprove"
+  }
+ },
+ "Positivist": {
+  "governance_principles": {
+   "theocracy": "strongly_disapprove",
+   "council_republic": "strongly_disapprove",
+   "monarchy": "strongly_disapprove",
+   "parliamentary_republic": "neutral",
+   "corporate_state": "neutral",
+   "social_monarchy": "disapprove",
+   "presidential_republic": "approve"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_disapprove",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "approve",
+   "state_atheism": "strongly_approve"
+  },
+  "distribution_of_power": {
+   "technocracy": "strongly_approve",
+   "single_party_state": "approve",
+   "wealth_voting": "approve",
+   "autocracy": "neutral",
+   "oligarchy": "neutral",
+   "census_voting": "disapprove",
+   "landed_voting": "disapprove",
+   "universal_suffrage": "strongly_disapprove",
+   "anarchy": "strongly_disapprove"
+  },
+  "bureaucracy": {
+   "appointed_bureaucrats": "strongly_approve",
+   "elected_bureaucrats": "disapprove",
+   "hereditary_bureaucrats": "strongly_disapprove"
+  }
+ },
+ "Protectionist": {
+  "economic_system": {
+   "interventionism": "approve",
+   "agrarianism": "neutral",
+   "command_economy": "disapprove",
+   "cooperative_ownership": "disapprove",
+   "laissez_faire": "disapprove",
+   "traditionalism": "disapprove",
+   "industry_banned": "strongly_disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "trade_policy": {
+   "protectionism": "strongly_approve",
+   "mercantilism": "approve",
+   "free_trade": "disapprove",
+   "isolationism": "neutral"
+  }
+ },
+ "Radical": {
+  "governance_principles": {
+   "monarchy": "strongly_disapprove",
+   "theocracy": "strongly_disapprove",
+   "council_republic": "strongly_disapprove",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "approve",
+   "corporate_state": "disapprove",
+   "social_monarchy": "strongly_disapprove"
+  },
+  "distribution_of_power": {
+   "universal_suffrage": "strongly_approve",
+   "census_voting": "approve",
+   "wealth_voting": "neutral",
+   "technocracy": "disapprove",
+   "landed_voting": "disapprove",
+   "anarchy": "strongly_disapprove",
+   "oligarchy": "strongly_disapprove",
+   "autocracy": "strongly_disapprove",
+   "single_party_state": "disapprove"
+  },
+  "free_speech": {
+   "protected_speech": "strongly_approve",
+   "right_of_assembly": "approve",
+   "censorship": "disapprove",
+   "outlawed_dissent": "strongly_disapprove"
+  },
+  "internal_security": {
+   "guaranteed_liberties": "strongly_approve",
+   "no_home_affairs": "neutral",
+   "national_guard": "approve",
+   "secret_police": "strongly_disapprove"
+  },
+  "education_system": {
+   "public_schools": "approve",
+   "private_schools": "neutral",
+   "no_schools": "disapprove",
+   "religious_schools": "disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "disapprove",
+   "guild_system": "strongly_disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "disapprove",
+   "right_to_associate": "neutral",
+   "factory_councils": "strongly_disapprove"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "strongly_disapprove",
+   "intermediate_edo_system": "disapprove",
+   "lax_edo_system": "approve"
+  }
+ },
+ "Reformer": {
+  "citizenship": {
+   "multicultural": "disapprove",
+   "ethnostate": "disapprove",
+   "national_supremacy": "disapprove",
+   "subjecthood": "disapprove",
+   "racial_segregation": "neutral",
+   "cultural_exclusion": "approve"
+  },
+  "rights_of_women": {
+   "no_womens_rights": "neutral",
+   "women_own_property": "approve",
+   "women_in_the_workplace": "neutral",
+   "womens_suffrage": "neutral"
+  },
+  "childrens_rights": {
+   "child_labor_allowed": "disapprove",
+   "restricted_child_labor": "neutral",
+   "compulsory_primary_school": "approve"
+  },
+  "labour_associations": {
+   "combination_acts": "disapprove",
+   "guild_system": "disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "approve",
+   "factory_councils": "strongly_disapprove"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "disapprove",
+   "intermediate_edo_system": "neutral",
+   "lax_edo_system": "approve"
+  }
+ },
+ "Republican": {
+  "governance_principles": {
+   "presidential_republic": "strongly_approve",
+   "parliamentary_republic": "approve",
+   "corporate_state": "neutral",
+   "social_monarchy": "disapprove",
+   "council_republic": "disapprove",
+   "monarchy": "disapprove",
+   "theocracy": "disapprove"
+  },
+  "bureaucracy": {
+   "elected_bureaucrats": "approve",
+   "appointed_bureaucrats": "neutral",
+   "hereditary_bureaucrats": "disapprove"
+  }
+ },
+ "Royalist": {
+  "governance_principles": {
+   "monarchy": "strongly_approve",
+   "presidential_republic": "neutral",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "neutral",
+   "social_monarchy": "approve",
+   "theocracy": "disapprove",
+   "council_republic": "strongly_disapprove"
+  }
+ },
+ "Shojoi": {
+  "migration": {
+   "closed_borders": "approve",
+   "migration_controls": "disapprove",
+   "no_migration_controls": "strongly_disapprove"
+  },
+  "trade_policy": {
+   "free_trade": "strongly_disapprove",
+   "mercantilism": "disapprove",
+   "protectionism": "disapprove",
+   "isolationism": "approve"
+  },
+  "army_model": {
+   "mass_conscription": "strongly_approve",
+   "professional_army": "approve",
+   "national_militia": "neutral",
+   "peasant_levies": "disapprove"
+  },
+  "navy_model": {
+   "merchant_navy": "disapprove",
+   "jeune_ecole": "approve",
+   "professional_navy": "neutral",
+   "diplomatic_navy": "neutral"
+  }
+ },
+ "Slaver": {
+  "slavery": {
+   "slave_trade": "strongly_approve",
+   "legacy_slavery": "approve",
+   "colonial_slavery": "neutral",
+   "debt_slavery": "neutral",
+   "slavery_banned": "strongly_disapprove"
+  }
+ },
+ "Social Democrat": {
+  "labor_rights": {
+   "worker_protections": "strongly_approve",
+   "regulatory_bodies": "approve",
+   "no_workers_rights": "neutral"
+  },
+  "distribution_of_power": {
+   "universal_suffrage": "strongly_approve",
+   "census_voting": "neutral",
+   "wealth_voting": "disapprove",
+   "landed_voting": "disapprove",
+   "anarchy": "disapprove",
+   "technocracy": "disapprove",
+   "oligarchy": "strongly_disapprove",
+   "autocracy": "strongly_disapprove",
+   "single_party_state": "strongly_disapprove"
+  },
+  "taxation": {
+   "consumption_based_taxation": "disapprove",
+   "land_based_taxation": "disapprove",
+   "per_capita_based_taxation": "neutral",
+   "proportional_taxation": "approve",
+   "graduated_taxation": "strongly_approve"
+  },
+  "welfare": {
+   "poor_laws": "strongly_disapprove",
+   "no_social_security": "strongly_disapprove",
+   "wage_subsidies": "approve",
+   "old_age_pension": "strongly_approve"
+  },
+  "labour_associations": {
+   "combination_acts": "strongly_disapprove",
+   "guild_system": "disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "approve",
+   "factory_councils": "strongly_disapprove"
+  },
+  "caste_hegemony": {
+   "hindu_caste_enforced": "strongly_disapprove",
+   "hindu_caste_codified": "disapprove",
+   "hindu_caste_not_enforced": "neutral",
+   "affirmative_action": "approve"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "strongly_disapprove",
+   "intermediate_edo_system": "disapprove",
+   "lax_edo_system": "approve"
+  }
+ },
+ "Sovereignist": {
+  "policing": {
+   "local_police": "approve",
+   "no_police": "neutral",
+   "dedicated_police": "disapprove",
+   "militarized_police": "strongly_disapprove"
+  },
+  "migration": {
+   "closed_borders": "approve",
+   "migration_controls": "strongly_approve",
+   "no_migration_controls": "disapprove"
+  },
+  "free_speech": {
+   "outlawed_dissent": "strongly_disapprove",
+   "censorship": "disapprove",
+   "right_of_assembly": "approve",
+   "protected_speech": "strongly_approve"
+  },
+  "citizenship": {
+   "ethnostate": "strongly_disapprove",
+   "subjecthood": "neutral",
+   "national_supremacy": "disapprove",
+   "racial_segregation": "disapprove",
+   "cultural_exclusion": "neutral",
+   "multicultural": "approve"
+  }
+ },
+ "Theocrat": {
+  "church_and_state": {
+   "state_religion": "approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  },
+  "governance_principles": {
+   "theocracy": "strongly_approve",
+   "monarchy": "neutral",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "approve",
+   "social_monarchy": "neutral",
+   "council_republic": "disapprove"
+  }
+ },
+ "Traditionalist": {
+  "rights_of_women": {
+   "no_womens_rights": "approve",
+   "women_own_property": "neutral",
+   "women_in_the_workplace": "disapprove",
+   "womens_suffrage": "strongly_disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "approve",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "strongly_disapprove",
+   "state_atheism": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "approve",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  },
+  "caste_hegemony": {
+   "hindu_caste_enforced": "strongly_approve",
+   "hindu_caste_codified": "approve",
+   "hindu_caste_not_enforced": "disapprove",
+   "affirmative_action": "strongly_disapprove"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "strongly_approve",
+   "intermediate_edo_system": "disapprove",
+   "lax_edo_system": "strongly_disapprove"
+  }
+ },
+ "Traditionalist Minoritarian": {
+  "rights_of_women": {
+   "no_womens_rights": "approve",
+   "women_own_property": "neutral",
+   "women_in_the_workplace": "disapprove",
+   "womens_suffrage": "strongly_disapprove"
+  },
+  "church_and_state": {
+   "state_religion": "strongly_disapprove",
+   "freedom_of_conscience": "disapprove",
+   "total_separation": "approve",
+   "state_atheism": "strongly_disapprove"
+  },
+  "labour_associations": {
+   "combination_acts": "neutral",
+   "guild_system": "approve",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "neutral",
+   "right_to_associate": "disapprove",
+   "factory_councils": "strongly_disapprove"
+  },
+  "caste_hegemony": {
+   "hindu_caste_enforced": "strongly_approve",
+   "hindu_caste_codified": "approve",
+   "hindu_caste_not_enforced": "disapprove",
+   "affirmative_action": "strongly_disapprove"
+  },
+  "edo_social_system": {
+   "strict_edo_system": "strongly_approve",
+   "intermediate_edo_system": "disapprove",
+   "lax_edo_system": "strongly_disapprove"
+  }
+ },
+ "Utilitarian": {
+  "childrens_rights": {
+   "compulsory_primary_school": "strongly_approve",
+   "restricted_child_labor": "neutral",
+   "child_labor_allowed": "neutral"
+  },
+  "education_system": {
+   "public_schools": "approve",
+   "private_schools": "neutral",
+   "religious_schools": "neutral",
+   "no_schools": "disapprove"
+  },
+  "rights_of_women": {
+   "no_womens_rights": "disapprove",
+   "women_own_property": "neutral",
+   "women_in_the_workplace": "approve",
+   "womens_suffrage": "strongly_approve"
+  },
+  "slavery": {
+   "slavery_banned": "neutral",
+   "debt_slavery": "strongly_disapprove",
+   "slave_trade": "strongly_disapprove",
+   "legacy_slavery": "disapprove",
+   "colonial_slavery": "approve"
+  },
+  "taxation": {
+   "consumption_based_taxation": "disapprove",
+   "per_capita_based_taxation": "neutral",
+   "proportional_taxation": "approve",
+   "graduated_taxation": "strongly_approve",
+   "land_based_taxation": "disapprove"
+  },
+  "caste_hegemony": {
+   "hindu_caste_enforced": "disapprove",
+   "hindu_caste_codified": "disapprove",
+   "hindu_caste_not_enforced": "neutral",
+   "affirmative_action": "neutral"
+  }
+ },
+ "Utopian": {
+  "labor_rights": {
+   "worker_protections": "strongly_approve",
+   "regulatory_bodies": "approve",
+   "no_workers_rights": "neutral"
+  },
+  "distribution_of_power": {
+   "universal_suffrage": "strongly_approve",
+   "census_voting": "approve",
+   "wealth_voting": "neutral",
+   "technocracy": "neutral",
+   "landed_voting": "disapprove",
+   "anarchy": "neutral",
+   "oligarchy": "strongly_disapprove",
+   "autocracy": "strongly_disapprove",
+   "single_party_state": "disapprove"
+  },
+  "governance_principles": {
+   "monarchy": "strongly_disapprove",
+   "presidential_republic": "approve",
+   "parliamentary_republic": "approve",
+   "corporate_state": "neutral",
+   "social_monarchy": "neutral",
+   "theocracy": "strongly_disapprove",
+   "council_republic": "approve"
+  },
+  "economic_system": {
+   "command_economy": "approve",
+   "cooperative_ownership": "strongly_approve",
+   "interventionism": "approve",
+   "agrarianism": "approve",
+   "traditionalism": "neutral",
+   "laissez_faire": "strongly_disapprove",
+   "industry_banned": "neutral",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "land_reform": {
+   "serfdom": "strongly_disapprove",
+   "commercialized_agriculture": "disapprove",
+   "tenant_farmers": "disapprove",
+   "peasant_proprietorship": "approve",
+   "collectivized_agriculture": "approve"
+  },
+  "slavery": {
+   "slavery_banned": "neutral",
+   "legacy_slavery": "disapprove",
+   "colonial_slavery": "disapprove",
+   "debt_slavery": "strongly_disapprove",
+   "slave_trade": "strongly_disapprove"
+  }
+ },
+ "Vanguardist": {
+  "governance_principles": {
+   "monarchy": "strongly_disapprove",
+   "presidential_republic": "disapprove",
+   "parliamentary_republic": "disapprove",
+   "corporate_state": "strongly_disapprove",
+   "social_monarchy": "strongly_disapprove",
+   "theocracy": "strongly_disapprove",
+   "council_republic": "strongly_approve"
+  },
+  "distribution_of_power": {
+   "oligarchy": "strongly_disapprove",
+   "autocracy": "strongly_disapprove",
+   "anarchy": "disapprove",
+   "universal_suffrage": "disapprove",
+   "census_voting": "strongly_disapprove",
+   "wealth_voting": "strongly_disapprove",
+   "landed_voting": "strongly_disapprove",
+   "technocracy": "approve",
+   "single_party_state": "strongly_approve"
+  },
+  "economic_system": {
+   "command_economy": "strongly_approve",
+   "cooperative_ownership": "approve",
+   "interventionism": "neutral",
+   "agrarianism": "disapprove",
+   "traditionalism": "disapprove",
+   "laissez_faire": "strongly_disapprove",
+   "industry_banned": "strongly_disapprove",
+   "extraction_economy": "strongly_disapprove"
+  },
+  "trade_policy": {
+   "protectionism": "approve",
+   "mercantilism": "disapprove",
+   "isolationism": "approve",
+   "free_trade": "strongly_disapprove"
+  },
+  "land_reform": {
+   "commercialized_agriculture": "strongly_disapprove",
+   "serfdom": "strongly_disapprove",
+   "tenant_farmers": "disapprove",
+   "peasant_proprietorship": "neutral",
+   "collectivized_agriculture": "approve"
+  },
+  "labour_associations": {
+   "combination_acts": "disapprove",
+   "guild_system": "strongly_disapprove",
+   "anti_strike_laws": "neutral",
+   "corporatized_unions": "strongly_disapprove",
+   "right_to_associate": "neutral",
+   "factory_councils": "approve"
+  }
+ }
+}
