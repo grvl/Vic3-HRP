@@ -1,0 +1,528 @@
+{
+ "generated": "from ideology_groups_v3.xlsx",
+ "Groups": [
+  [
+   "ID",
+   "Classification",
+   "Group Name",
+   "Bond Lvl",
+   "Member Ideologies"
+  ],
+  [
+   "G01",
+   "Left and revolutionary",
+   "The Broad Left",
+   "1.0",
+   "Anarchist, Communist, Vanguardist, Social Democrat, Radical, Land Reformer, Utopian"
+  ],
+  [
+   "G02",
+   "Left and revolutionary",
+   "Revolutionary Socialists",
+   "3.0",
+   "Anarchist, Communist, Vanguardist"
+  ],
+  [
+   "G03",
+   "Left and revolutionary",
+   "Marxist Core",
+   "4.0",
+   "Communist, Vanguardist"
+  ],
+  [
+   "G04",
+   "Left and revolutionary",
+   "No Gods No Kings",
+   "4.0",
+   "Anarchist, Nihilist"
+  ],
+  [
+   "G06",
+   "Left and revolutionary",
+   "Utopian Reformists",
+   "3.0",
+   "Utopian, Land Reformer, Social Democrat"
+  ],
+  [
+   "G07",
+   "Left and revolutionary",
+   "Anti-Clerical Bloc",
+   "2.0",
+   "Positivist, Nihilist, Communist, Vanguardist, Anarchist, Radical"
+  ],
+  [
+   "G36",
+   "Left and revolutionary",
+   "Worker's Coalition",
+   "2.0",
+   "Anarchist, Communist, Vanguardist, Social Democrat, Utopian"
+  ],
+  [
+   "G08",
+   "Liberal and progressive",
+   "The Liberal Bloc",
+   "2.0",
+   "Liberal, Reformer, Radical, Republican, Market Liberal, Ilustrado"
+  ],
+  [
+   "G09",
+   "Liberal and progressive",
+   "Democratic Radicals",
+   "3.0",
+   "Radical, Jacksonian Democrat, Republican"
+  ],
+  [
+   "G10",
+   "Liberal and progressive",
+   "Economic Liberals",
+   "3.0",
+   "Market Liberal, Orleanist, Liberal"
+  ],
+  [
+   "G11",
+   "Liberal and progressive",
+   "Progressive Reform Coalition",
+   "1.0",
+   "Liberal, Reformer, Modernizer, Positivist, Utilitarian, Feminist, Humanitarian, Social Democrat, Abolitionist"
+  ],
+  [
+   "G12",
+   "Liberal and progressive",
+   "Emancipation Bloc",
+   "3.0",
+   "Abolitionist, Humanitarian, Feminist, Utopian"
+  ],
+  [
+   "G13",
+   "Liberal and progressive",
+   "Humanitarian Conscience",
+   "4.0",
+   "Humanitarian, Humanitarian Royalist"
+  ],
+  [
+   "G14",
+   "Liberal and progressive",
+   "Civil Liberties Bloc",
+   "2.0",
+   "Liberal, Sovereignist, Ilustrado, Republican, Radical, Anarchist"
+  ],
+  [
+   "G15",
+   "Liberal and progressive",
+   "Anti-Colonial Bloc",
+   "3.0",
+   "Sovereignist, Ilustrado, Humanitarian Royalist"
+  ],
+  [
+   "G16",
+   "Liberal and progressive",
+   "Peace Bloc",
+   "2.0",
+   "Pacifist, Humanitarian, Utopian, Abolitionist, Anarchist"
+  ],
+  [
+   "G17",
+   "Centre and developmentalist",
+   "Modernizing Technocrats",
+   "3.0",
+   "Modernizer, Positivist, Utilitarian, Reformer"
+  ],
+  [
+   "G18",
+   "Centre and developmentalist",
+   "Meiji Reformers",
+   "4.0",
+   "Mitogaku, Modernizer"
+  ],
+  [
+   "G19",
+   "Centre and developmentalist",
+   "National Development Bloc",
+   "2.0",
+   "Protectionist, Modernizer, Corporatist, Mitogaku, Bonapartist"
+  ],
+  [
+   "G20",
+   "Monarchist and conservative",
+   "The Monarchist Bloc",
+   "1.0",
+   "Royalist, Legitimist, Orleanist, Bonapartist, Carlist, Carlist II, Miguelist, Miguelist II, Humanitarian Royalist"
+  ],
+  [
+   "G21",
+   "Monarchist and conservative",
+   "Legitimist Ultras",
+   "4.0",
+   "Legitimist, Carlist, Miguelist"
+  ],
+  [
+   "G22",
+   "Monarchist and conservative",
+   "Reformed Pretenders",
+   "4.0",
+   "Carlist II, Miguelist II"
+  ],
+  [
+   "G23",
+   "Monarchist and conservative",
+   "Iberian Pretenders",
+   "3.0",
+   "Carlist, Carlist II, Miguelist, Miguelist II"
+  ],
+  [
+   "G24",
+   "Monarchist and conservative",
+   "Throne and Altar",
+   "3.0",
+   "Traditionalist, Theocrat, Legitimist, Carlist, Miguelist, Integralist"
+  ],
+  [
+   "G25",
+   "Monarchist and conservative",
+   "Liberal Monarchists",
+   "3.0",
+   "Orleanist, Humanitarian Royalist, Market Liberal"
+  ],
+  [
+   "G26",
+   "Monarchist and conservative",
+   "Bonapartist Caesarism",
+   "3.0",
+   "Bonapartist, Jingoist, Authoritarian"
+  ],
+  [
+   "G27",
+   "Monarchist and conservative",
+   "Traditionalist Bloc",
+   "3.0",
+   "Traditionalist, Traditionalist Minoritarian, Theocrat, Luddite"
+  ],
+  [
+   "G28",
+   "Authoritarian and reactionary right",
+   "Fascist Core",
+   "4.0",
+   "Fascist, Ethno-Nationalist"
+  ],
+  [
+   "G29",
+   "Authoritarian and reactionary right",
+   "The Radical Right",
+   "3.0",
+   "Fascist, Ethno-Nationalist, Integralist, Corporatist, Authoritarian"
+  ],
+  [
+   "G30",
+   "Authoritarian and reactionary right",
+   "Corporatist Order",
+   "3.0",
+   "Corporatist, Integralist, Theocrat, Authoritarian"
+  ],
+  [
+   "G31",
+   "Authoritarian and reactionary right",
+   "Strongman Rule",
+   "4.0",
+   "Authoritarian, Despotic Utopian"
+  ],
+  [
+   "G32",
+   "Authoritarian and reactionary right",
+   "The Authoritarian Right",
+   "1.0",
+   "Authoritarian, Fascist, Ethno-Nationalist, Legitimist, Bonapartist, Despotic Utopian, Jingoist, Theocrat, Integralist, Corporatist"
+  ],
+  [
+   "G33",
+   "Authoritarian and reactionary right",
+   "Militarist Bloc",
+   "2.0",
+   "Jingoist, Bonapartist, Shojoi, Fascist, Ethno-Nationalist, Authoritarian"
+  ],
+  [
+   "G34",
+   "Authoritarian and reactionary right",
+   "Isolationist Reaction",
+   "3.0",
+   "Shojoi, Luddite, Traditionalist"
+  ],
+  [
+   "G35",
+   "Authoritarian and reactionary right",
+   "The Slavocracy",
+   "3.0",
+   "Slaver, Ethno-Nationalist, Traditionalist, Jacksonian Democrat"
+  ]
+ ],
+ "Rivalries": [
+  [
+   "ID",
+   "Level",
+   "Side A",
+   "Side B"
+  ],
+  [
+   "A01",
+   "Level 1 — Antagonism",
+   "G36 Worker's Coalition",
+   "vs G10 Economic Liberals"
+  ],
+  [
+   "A02",
+   "Level 1 — Antagonism",
+   "G06 Reformist Left",
+   "vs G10 Economic Liberals"
+  ],
+  [
+   "A03",
+   "Level 1 — Antagonism",
+   "G06 Utopian Reformists",
+   "vs G31 Strongman Rule"
+  ],
+  [
+   "A04",
+   "Level 1 — Antagonism",
+   "G06 Utopian Reformists",
+   "vs G35 The Slavocracy"
+  ],
+  [
+   "A05",
+   "Level 1 — Antagonism",
+   "G08 The Liberal Bloc",
+   "vs G32 The Authoritarian Right"
+  ],
+  [
+   "A06",
+   "Level 1 — Antagonism",
+   "G11 Progressive Reform Coalition",
+   "vs G27 Traditionalist Bloc"
+  ],
+  [
+   "A07",
+   "Level 1 — Antagonism",
+   "G12 Emancipation Bloc",
+   "vs G27 Traditionalist Bloc"
+  ],
+  [
+   "A08",
+   "Level 1 — Antagonism",
+   "G17 Modernizing Technocrats",
+   "vs G27 Traditionalist Bloc"
+  ],
+  [
+   "A09",
+   "Level 1 — Antagonism",
+   "G17 Modernizing Technocrats",
+   "vs G34 Isolationist Reaction"
+  ],
+  [
+   "A10",
+   "Level 1 — Antagonism",
+   "G18 Meiji Reformers",
+   "vs G34 Isolationist Reaction"
+  ],
+  [
+   "A11",
+   "Level 1 — Antagonism",
+   "G19 National Development Bloc",
+   "vs G34 Isolationist Reaction"
+  ],
+  [
+   "A12",
+   "Level 1 — Antagonism",
+   "G10 Economic Liberals",
+   "vs G34 Isolationist Reaction"
+  ],
+  [
+   "A13",
+   "Level 1 — Antagonism",
+   "G16 Peace Bloc",
+   "vs G33 Militarist Bloc"
+  ],
+  [
+   "A14",
+   "Level 1 — Antagonism",
+   "G20 The Monarchist Bloc",
+   "vs G09 Democratic Radicals"
+  ],
+  [
+   "A15",
+   "Level 1 — Antagonism",
+   "G25 Liberal Monarchists",
+   "vs G21 Legitimist Ultras"
+  ],
+  [
+   "A16",
+   "Level 1 — Antagonism",
+   "G26 Bonapartist Caesarism",
+   "vs G09 Democratic Radicals"
+  ],
+  [
+   "X01",
+   "Level 2 — Existential",
+   "G02 Revolutionary Socialists",
+   "vs G28 Fascist Core"
+  ],
+  [
+   "X02",
+   "Level 2 — Existential",
+   "G02 Revolutionary Socialists",
+   "vs G29 The Radical Right"
+  ],
+  [
+   "X03",
+   "Level 2 — Existential",
+   "G02 Revolutionary Socialists",
+   "vs G21 Legitimist Ultras"
+  ],
+  [
+   "X04",
+   "Level 2 — Existential",
+   "G03 Marxist Core",
+   "vs G28 Fascist Core"
+  ],
+  [
+   "X05",
+   "Level 2 — Existential",
+   "G03 Marxist Core",
+   "vs G30 Corporatist Order"
+  ],
+  [
+   "X06",
+   "Level 2 — Existential",
+   "G36 Worker's Coalition",
+   "vs G29 The Radical Right"
+  ],
+  [
+   "X07",
+   "Level 2 — Existential",
+   "G01 The Broad Left",
+   "vs G32 The Authoritarian Right"
+  ],
+  [
+   "X08",
+   "Level 2 — Existential",
+   "G04 Anti-State Radicals",
+   "vs G31 Strongman Rule"
+  ],
+  [
+   "X09",
+   "Level 2 — Existential",
+   "G07 Anti-Clerical Bloc",
+   "vs G24 Throne and Altar"
+  ],
+  [
+   "X10",
+   "Level 2 — Existential",
+   "G22 Reformed Pretenders",
+   "vs G07 Anti-Clerical Bloc"
+  ],
+  [
+   "X11",
+   "Level 2 — Existential",
+   "G12 Emancipation Bloc",
+   "vs G35 The Slavocracy"
+  ],
+  [
+   "X12",
+   "Level 2 — Existential",
+   "G13 Humanitarian Conscience",
+   "vs G28 Fascist Core"
+  ],
+  [
+   "X13",
+   "Level 2 — Existential",
+   "G15 Anti-Colonial Bloc",
+   "vs G28 Fascist Core"
+  ],
+  [
+   "X14",
+   "Level 2 — Existential",
+   "G14 Civil Liberties Bloc",
+   "vs G29 The Radical Right"
+  ],
+  [
+   "X15",
+   "Level 2 — Existential",
+   "G08 The Liberal Bloc",
+   "vs G28 Fascist Core"
+  ],
+  [
+   "X16",
+   "Level 2 — Existential",
+   "G08 The Liberal Bloc",
+   "vs G21 Legitimist Ultras"
+  ],
+  [
+   "X17",
+   "Level 2 — Existential",
+   "G09 Democratic Radicals",
+   "vs G21 Legitimist Ultras"
+  ],
+  [
+   "X18",
+   "Level 2 — Existential",
+   "G23 Iberian Pretenders",
+   "vs G08 The Liberal Bloc"
+  ]
+ ],
+ "Details": [
+  [
+   "MappieBot — Character Ideology Affinity Groups (v1 draft, for review)"
+  ],
+  [
+   "Characters sharing a group treat each other as friendly for character actions. Higher bond level = stronger pull toward cooperation. Characters within a group might try to help each other out, convince each other to change to their ideology, or other cooperative actions."
+  ],
+  [
+   "Bond levels: 1 Sympathetic · 2 Strategic Alignment · 3 Ideological Coalition · 4 Natural Allies"
+  ],
+  [
+   "Characters of the same interest group who don’t share a bond or a rivalry are considered as level 1 bond."
+  ],
+  [
+   "Notes on the model"
+  ],
+  [
+   "- An ideology can sit in several groups. Two characters use the highest level they share."
+  ],
+  [
+   "- A pair can hold a bond and a rivalry at the same time — allies on one axis, enemies on another."
+  ],
+  [
+   "- ideology_moderate and ideology_child are excluded and stay neutral to everyone"
+  ],
+  [
+   "- Groupings are derived from the law stances in 01_character_ideologies.txt and 02_character_french_flavored.txt — each pair scored on agreement across every law both hold an opinion on."
+  ],
+  [
+   "- Ideologies with very few scripted law opinions (Feminist, Slaver, Land Reformer, Nihilist, Royalist, Republican) are placed on flavour more than data."
+  ],
+  [
+   "Rivalries"
+  ],
+  [
+   "Each line is one self-contained pair."
+  ],
+  [
+   "Level 1 — Antagonism. Deep, sometimes bitter disagreement. Characters obstruct, denounce and undermine each other, and may come to hate one another, but they can share a country without one of them dying for it."
+  ],
+  [
+   "Level 2 — Existential. They want each other dead. Slander, assassination, coup."
+  ],
+  [
+   "Rules and checks"
+  ],
+  [
+   "The one hard rule: no ideology may appear on both sides of a rivalry line. All 34 lines above are clean."
+  ],
+  [
+   "Bonds and rivalries may coexist on the same pair of ideologies. Deliberate — it models people who are allies on one question and enemies on another."
+  ],
+  [
+   "Every group has at least one rivalry."
+  ],
+  [
+   "No pair is both a bond and a Level 2 rivalry. Every coexistence below is Level 1, so nothing bonded is ever also shoot-on-sight."
+  ]
+ ]
+}
