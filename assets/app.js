@@ -568,8 +568,6 @@ function renderIdeology(root) {
   head.append(chips);
   root.append(head);
 
-  renderLawStances(root, rec.name);
-
   const both = new Set([...rec.bonds.keys()].filter(n => rec.rivals.has(n)));
   const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
   summary.textContent =
@@ -612,6 +610,8 @@ function renderIdeology(root) {
     'Enemies only. Inherited from group-vs-group rivalry lines.',
     rivalsOnly, e => relCard(e, 'rival'),
     'No rivalries — nobody is out to get them.');
+
+  renderLawStances(root, rec.name);
 }
 
 function renderGroups(root, focusId) {
