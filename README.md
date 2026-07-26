@@ -10,7 +10,7 @@ the sheet updates the site — no commit, no deploy.
 
 | View | What it shows |
 | --- | --- |
-| **Ideologies** | Pick one → its groups, then **Bonds** (allies only), **Frenemies** (both at once) and **Rivalries** (enemies only), each annotated with the group or rivalry line it came from. Cards are clickable, so you can walk the graph. |
+| **Ideologies** | Pick one → its groups, **Law Stances** (how it feels about every law, straight from the game files), then **Bonds** (allies only), **Frenemies** (both at once) and **Rivalries** (enemies only), each annotated with the group or rivalry line it came from. Cards are clickable, so you can walk the graph. |
 | **Groups** | Every affinity group by classification, with its bond level and members. |
 | **Rivalry lines** | The raw group-vs-group lines, split by level. |
 | **Matrix** | All ideologies against all others. Digits are bond levels, `✕` existential rivalry, `–` antagonism; split cells are both at once. |
@@ -85,6 +85,51 @@ python3 -m http.server 8000   # then open http://localhost:8000
 For GitHub Pages: **Settings → Pages → Deploy from a branch**, pick this branch and the
 `/` root folder.
 
+## Law stances
+
+`data/law-stances.json` is a static extract of Victoria 3's own `character_ideology`
+definitions — how each ideology's characters feel about every law in every law group,
+straight from the game's data files, not the spreadsheet. It's bundled rather than
+sheet-driven because it's game data, not something you'd want to hand-maintain in a sheet.
+
+Source: `01_character_ideologies.txt` (base game) and `02_character_french_flavored.txt`
+(the France-specific variants — Orleanist, Legitimist, Bonapartist override the base
+versions where both exist). Regenerate it if the source files change:
+
+```sh
+python3 - <<'PY'
+import re, json
+files = ['01_character_ideologies.txt', '02_character_french_flavored.txt']
+ideology_re = re.compile(r'^(ideology_[a-z0-9_]+)\s*=\s*\{', re.M)
+lawgroup_re = re.compile(r'lawgroup_([a-z0-9_]+)\s*=\s*\{([^{}]*)\}')
+law_re = re.compile(r'(law_[a-z0-9_]+)\s*=\s*([a-z_]+)')
+
+def find_block(text, i):
+    depth = 0
+    for j in range(i, len(text)):
+        if text[j] == '{': depth += 1
+        elif text[j] == '}':
+            depth -= 1
+            if depth == 0: return text[i:j+1]
+
+data = {}
+for f in files:
+    text = open(f, encoding='utf-8-sig').read()  # -sig strips a leading BOM, which
+    for m in ideology_re.finditer(text):          # otherwise breaks the ^-anchored match
+        block = find_block(text, m.end() - 1)      # on whatever ideology comes first
+        groups = {}
+        for lg in lawgroup_re.finditer(block):
+            laws = {l.group(1)[4:]: l.group(2) for l in law_re.finditer(lg.group(2))}
+            if laws: groups[lg.group(1)] = laws
+        if groups: data[m.group(1)] = groups
+# then map each ideology_xxx key to its sheet display name and dump to
+# data/law-stances.json — see the mapping table in this history for the 46 pairs.
+PY
+```
+
+Stance values (`strongly_disapprove` … `strongly_approve`) render as a 5-step colour
+scale, from the `.stance-*` classes in `assets/styles.css`.
+
 ## Ideology icons
 
 Every ideology gets its game icon next to its name — sidebar, cards, group members,
@@ -118,6 +163,7 @@ assets/app.js              fetch → CSV parse → normalise → render
 assets/icons/              ideology icons (web-ready PNGs)
 assets/ideology_leader/    source .dds textures for the icons above
 data/snapshot.json         offline fallback copy of the sheet
+data/law-stances.json      per-ideology law stances, extracted from the game files
 ```
 
 To point the page at a different spreadsheet, change `CONFIG.sheetId` at the top of

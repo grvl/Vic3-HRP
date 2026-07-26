@@ -243,6 +243,26 @@ a { color: inherit; }
 .frenemy-labels { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin-top: 3px; font-size: 12px; font-weight: 500; }
 .frenemy-labels .sep { color: var(--text-faint); font-weight: 400; font-style: italic; }
 
+/* ---------- law stances ---------- */
+.law-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.law-card { padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-elev); }
+.law-card h3 { margin: 0 0 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--text-faint); }
+.law-rows { display: flex; flex-direction: column; gap: 5px; }
+.law-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; }
+.law-name { color: var(--text-dim); }
+.stance-pill {
+  flex: none;
+  display: inline-grid; place-items: center;
+  min-width: 26px; height: 20px; padding: 0 6px;
+  border-radius: 999px; font-size: 11px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.stance-strongly_approve    { background: color-mix(in srgb, var(--bond-4) 25%, transparent); color: var(--bond-4); }
+.stance-approve             { background: color-mix(in srgb, var(--bond-3) 20%, transparent); color: var(--bond-3); }
+.stance-neutral             { background: var(--bg-elev-2); color: var(--text-faint); }
+.stance-disapprove          { background: color-mix(in srgb, var(--rival-1) 20%, transparent); color: var(--rival-1); }
+.stance-strongly_disapprove { background: color-mix(in srgb, var(--rival-2) 22%, transparent); color: var(--rival-2); }
+
 .callout {
   padding: 14px 16px; border: 1px dashed var(--line); border-radius: var(--radius);
   color: var(--text-faint); font-size: 13.5px;
