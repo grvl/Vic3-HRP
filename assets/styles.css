@@ -48,6 +48,18 @@
   --shadow: 0 4px 18px #0000001a;
 }
 
+/* ---------- ideology icons ---------- */
+.ig-icon {
+  flex: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-elev-2);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.ig-icon-lg { width: 44px; height: 44px; box-shadow: 0 0 0 2px var(--line); }
+.ig-icon-sm { width: 16px; height: 16px; box-shadow: 0 0 0 1px var(--line-soft); }
+
 /* ---------- base ---------- */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -172,6 +184,7 @@ a { color: inherit; }
 
 /* ---------- cards / sections ---------- */
 .page-head { margin-bottom: 18px; }
+.page-title-row { display: flex; align-items: center; gap: 12px; }
 .page-head h1 { margin: 0 0 6px; font-size: clamp(22px, 4vw, 30px); letter-spacing: -.02em; }
 .page-head p { margin: 0; color: var(--text-dim); font-size: 14px; max-width: 68ch; line-height: 1.55; }
 
@@ -260,9 +273,11 @@ a { color: inherit; }
 .notes-body h2 { margin: 26px 0 8px; font-size: 16px; }
 .member-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
 .member-chip {
-  padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px 3px 4px; border: 1px solid var(--line); border-radius: 999px;
   background: var(--bg); font-size: 12px; color: var(--text-dim); cursor: pointer;
 }
+.member-chip .ig-icon { width: 18px; height: 18px; }
 .member-chip:hover { border-color: var(--accent); color: var(--text); }
 
 .rival-row {
@@ -289,6 +304,7 @@ table.matrix thead th {
 table.matrix thead th span { display: block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; padding-left: 6px; color: var(--text-dim); font-weight: 500; }
 table.matrix tbody th {
   position: sticky; left: 0; z-index: 1;
+  display: flex; align-items: center; gap: 6px;
   padding: 0 10px; height: 26px; text-align: left; white-space: nowrap;
   background: var(--bg-elev-2); color: var(--text-dim); font-weight: 500;
   border-right: 1px solid var(--line);

@@ -10,7 +10,7 @@ the sheet updates the site — no commit, no deploy.
 
 | View | What it shows |
 | --- | --- |
-| **Ideologies** | Pick one → its groups, then **Bonds** (allies only), **Rivalries** (enemies only) and **Frenemies** (both at once), each annotated with the group or rivalry line it came from. Cards are clickable, so you can walk the graph. |
+| **Ideologies** | Pick one → its groups, then **Bonds** (allies only), **Frenemies** (both at once) and **Rivalries** (enemies only), each annotated with the group or rivalry line it came from. Cards are clickable, so you can walk the graph. |
 | **Groups** | Every affinity group by classification, with its bond level and members. |
 | **Rivalry lines** | The raw group-vs-group lines, split by level. |
 | **Matrix** | All ideologies against all others. Digits are bond levels, `✕` existential rivalry, `–` antagonism; split cells are both at once. |
@@ -40,10 +40,16 @@ From that:
 - An ideology is never made a rival of itself, even if it sits in groups on both sides.
 
 The header row is located by scanning the first rows for the best column-name match, so a
-title or note above the header doesn't shift the columns. If a bond level still can't be
-read it defaults to 1 **and says so** in a banner on the Notes tab, naming the groups and
-the raw cell value it saw — a silent default here is what makes every group look like
-level 1.
+title or note above the header doesn't shift the columns. The sheet is fetched with
+`headers=1` — gviz's own header handling — rather than treating row 0 as data: with
+`headers=0` gviz types every column from its data rows and blanks out any cell that
+doesn't match that type, so a text label sitting above a column of numbers (like
+"Bond Lvl") comes back empty and can never be matched by name. If the level column still
+can't be found by name, it's inferred from its contents (the column that's almost all
+small standalone integers) as a last resort, and a banner on Notes says so. If a level
+still can't be read it defaults to 1 **and says so** in a banner on the Notes tab, naming
+the group and the raw cell value it saw — a silent default here is what makes every group
+look like level 1.
 
 ### Groups are matched by ID
 
@@ -79,13 +85,39 @@ python3 -m http.server 8000   # then open http://localhost:8000
 For GitHub Pages: **Settings → Pages → Deploy from a branch**, pick this branch and the
 `/` root folder.
 
+## Ideology icons
+
+Every ideology gets its game icon next to its name — sidebar, cards, group members,
+matrix rows. `assets/ideology_leader/` holds the source textures (Victoria 3's own
+`ideology_leader_*.dds` files, a game-engine format browsers can't render); those were
+converted once to 96×96 PNGs in `assets/icons/`, which is what the site actually loads.
+
+`ICON_OVERRIDES` in `assets/app.js` maps sheet ideology names to icon filenames. Most
+resolve automatically (`Anarchist` → `ideology_leader_anarchist.png`); a handful needed an
+explicit entry because the game's own filename doesn't match the sheet name 1:1 — a typo
+in the source (`idealogy_leader_modernizer`), a different word (`Humanitarian` ships as
+`humanitarism`), an ideology added late without its own icon (`Carlist II` reuses
+`Carlist`), or no confirmed match at all (`Shojoi` falls back to `isolationist` — flagged
+in the code as a guess, not a citation). An ideology with no matching file at all just
+loses its icon and falls back to text-only; nothing breaks.
+
+To add or fix an icon: drop the `.dds` in `assets/ideology_leader/`, convert it —
+
+```sh
+python3 -c "from PIL import Image; Image.open('assets/ideology_leader/NAME.dds').convert('RGBA').resize((96,96)).save('assets/icons/NAME.png', optimize=True)"
+```
+
+— and add an `ICON_OVERRIDES` entry if the filename doesn't already match the sheet name.
+
 ## Files
 
 ```
-index.html            markup + shell
-assets/styles.css     theming, layout, responsive rules
-assets/app.js         fetch → CSV parse → normalise → render
-data/snapshot.json    offline fallback copy of the sheet
+index.html                 markup + shell
+assets/styles.css          theming, layout, responsive rules
+assets/app.js              fetch → CSV parse → normalise → render
+assets/icons/              ideology icons (web-ready PNGs)
+assets/ideology_leader/    source .dds textures for the icons above
+data/snapshot.json         offline fallback copy of the sheet
 ```
 
 To point the page at a different spreadsheet, change `CONFIG.sheetId` at the top of

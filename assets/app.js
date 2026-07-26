@@ -26,6 +26,48 @@ const RIVAL_LEVELS = {
   2: { name: 'Existential Threat', color: 'var(--rival-2)' },
 };
 
+/**
+ * Ideology → icon filename (in assets/icons/, converted from the game's own
+ * ideology_leader .dds textures). Most sheet names match the game's icon name once
+ * normalised; the handful that don't (renamed, merged variants, or icons the game
+ * itself never shipped for that ideology) are listed explicitly.
+ */
+const ICON_OVERRIDES = {
+  'Authoritarian': 'authoritarian',
+  'Humanitarian': 'ideology_leader_humanitarism',
+  'Modernizer': 'idealogy_leader_modernizer',
+  'Protectionist': 'ideology_leader_protectionism',
+  'Jacksonian Democrat': 'jackson_democrat',
+  'Luddite': 'luddite',
+  'Mitogaku': 'mitogaku',
+  'Carlist II': 'ideology_leader_carlist',       // no distinct icon shipped — reuses Carlist
+  'Miguelist II': 'ideology_leader_miguelist',   // no distinct icon shipped — reuses Miguelist
+  'Traditionalist Minoritarian': 'ideology_leader_traditionalist',
+  'Shojoi': 'isolationist',                      // closest available match, not a confirmed 1:1
+};
+const iconCache = new Map();
+
+/** Resolve an ideology name to its icon URL, or null if nothing matches. */
+function iconFor(name) {
+  if (iconCache.has(name)) return iconCache.get(name);
+  const file = ICON_OVERRIDES[name]
+    || 'ideology_leader_' + name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+  const url = `assets/icons/${file}.png`;
+  iconCache.set(name, url);
+  return url;
+}
+
+/** An <img> that quietly removes itself (leaving the text-only layout) if the icon 404s. */
+function iconImg(name, cls = 'ig-icon') {
+  const img = el('img', cls);
+  img.src = iconFor(name);
+  img.alt = '';
+  img.loading = 'lazy';
+  img.decoding = 'async';
+  img.addEventListener('error', () => img.remove(), { once: true });
+  return img;
+}
+
 const bondInfo  = l => BOND_LEVELS[l]  || { name: 'Bond',    color: 'var(--bond-1)' };
 const rivalInfo = l => RIVAL_LEVELS[l] || { name: 'Rivalry', color: 'var(--rival-1)' };
 
@@ -86,8 +128,12 @@ function parseCSV(text) {
 /* ------------------------------------------------------------------ loading */
 
 function gvizUrl(tab) {
+  // headers=1, NOT 0. With headers=0 gviz treats the header row as data, types each
+  // column from the majority of its values, and blanks out cells that don't match —
+  // so a text label sitting above 35 numbers ("Bond Lvl") comes back empty and the
+  // column can never be found by name. headers=1 always emits the labels as strings.
   return `https://docs.google.com/spreadsheets/d/${CONFIG.sheetId}/gviz/tq` +
-         `?tqx=out:csv&sheet=${encodeURIComponent(tab)}&headers=0&_=${Date.now()}`;
+         `?tqx=out:csv&sheet=${encodeURIComponent(tab)}&headers=1&_=${Date.now()}`;
 }
 
 async function fetchTab(tab) {
@@ -167,6 +213,29 @@ function findHeader(rows, spec, maxScan = 12) {
   return best;
 }
 
+/**
+ * Last resort when the level column can't be found by name: find it by what it
+ * contains. Scan every column not already claimed and take the one whose values are
+ * overwhelmingly small standalone integers — that's a level column and nothing else is.
+ */
+function inferLevelColumn(rows, claimed) {
+  const width = Math.max(0, ...rows.map(r => r.length));
+  let best = -1, bestHits = 0;
+  for (let c = 0; c < width; c++) {
+    if (claimed.includes(c)) continue;
+    let hits = 0, seen = 0;
+    for (const row of rows) {
+      const v = clean(row[c]);
+      if (!v) continue;
+      seen++;
+      // "1", "1.0", "1,0", "Level 2 — Existential" all count; free text does not.
+      if (/^(level\s*)?\d+([.,]\d+)?(\s*[-–—:].*)?$/i.test(v) && toLevel(v) <= 9) hits++;
+    }
+    if (seen >= 3 && hits / seen >= 0.8 && hits > bestHits) { bestHits = hits; best = c; }
+  }
+  return best;
+}
+
 /** Pull a level out of whatever the sheet hands us: 3, "3.0", "3,0", "Level 3 — …". */
 function toLevel(v) {
   const m = String(v == null ? '' : v).replace(',', '.').match(/\d+(?:\.\d+)?/);
@@ -187,6 +256,11 @@ function normalise(raw) {
   if (gc.id < 0) gc.id = 0;
   if (gc.name < 0) gc.name = 2;
   if (gc.members < 0) gc.members = gHead.length - 1;
+  let levelInferred = false;
+  if (gc.level < 0) {
+    gc.level = inferLevelColumn(raw.groups.slice(gHeader.index + 1), [gc.id, gc.classification, gc.name, gc.members]);
+    levelInferred = gc.level >= 0;
+  }
 
   const groups = [];
   const groupById = new Map();
@@ -325,7 +399,8 @@ function normalise(raw) {
       badLevels,
       groupsHeaderRow: gHeader.index,
       groupsHeader: gHead,
-      levelColumn: gc.level >= 0 ? gHead[gc.level] : null,
+      levelColumn: gc.level >= 0 ? (gHead[gc.level] || `column ${gc.level + 1}`) : null,
+      levelInferred,
     },
   };
 }
@@ -343,7 +418,7 @@ function relCard(entry, kind) {
   card.type = 'button';
 
   const top = el('div', 'rel-card-top');
-  top.append(el('div', 'rel-name', entry.name));
+  top.append(iconImg(entry.name), el('div', 'rel-name', entry.name));
   top.append(el('span', 'lvl-badge', (kind === 'bond' ? 'L' : 'R') + entry.level));
   card.append(top);
   card.append(el('div', 'rel-label', info.name));
@@ -378,7 +453,7 @@ function frenemyCard({ name, bond, rival }) {
   card.style.setProperty('--rival-c', r.color);
 
   const top = el('div', 'rel-card-top');
-  top.append(el('div', 'rel-name', name));
+  top.append(iconImg(name), el('div', 'rel-name', name));
   const bBadge = el('span', 'lvl-badge', 'L' + bond.level);
   bBadge.style.setProperty('--lvl-color', b.color);
   const rBadge = el('span', 'lvl-badge', 'R' + rival.level);
@@ -414,7 +489,9 @@ function renderIdeology(root) {
   }
 
   const head = el('div', 'page-head');
-  head.append(el('h1', null, rec.name));
+  const titleRow = el('div', 'page-title-row');
+  titleRow.append(iconImg(rec.name, 'ig-icon ig-icon-lg'), el('h1', null, rec.name));
+  head.append(titleRow);
   const bonds  = [...rec.bonds.values()].sort((a, b) => b.level - a.level || a.name.localeCompare(b.name));
   const rivals = [...rec.rivals.values()].sort((a, b) => b.level - a.level || a.name.localeCompare(b.name));
   const overlap = [...rec.bonds.keys()].filter(n => rec.rivals.has(n)).length;
@@ -439,8 +516,8 @@ function renderIdeology(root) {
   const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
   summary.textContent =
     `${rec.classification} · ${plural(rec.groups.length, 'group')} · ` +
-    `${plural(bonds.length - overlap, 'bond')} · ${plural(rivals.length - overlap, 'rivalry').replace('rivalrys', 'rivalries')} · ` +
-    `${plural(overlap, 'frenemy').replace('frenemys', 'frenemies')}`;
+    `${plural(bonds.length - overlap, 'bond')} · ${plural(overlap, 'frenemy').replace('frenemys', 'frenemies')} · ` +
+    `${plural(rivals.length - overlap, 'rivalry').replace('rivalrys', 'rivalries')}`;
 
   const bondsOnly  = bonds.filter(e => !both.has(e.name));
   const rivalsOnly = rivals.filter(e => !both.has(e.name));
@@ -468,15 +545,15 @@ function renderIdeology(root) {
     bondsOnly, e => relCard(e, 'bond'),
     'No bonds — this ideology stands alone.');
 
-  section('Rivalries',
-    'Enemies only. Inherited from group-vs-group rivalry lines.',
-    rivalsOnly, e => relCard(e, 'rival'),
-    'No rivalries — nobody is out to get them.');
-
   section('Frenemies',
     'Both at once — allies on one question, enemies on another.',
     frenemies, frenemyCard,
     'No frenemies — every relationship here is purely one or the other.');
+
+  section('Rivalries',
+    'Enemies only. Inherited from group-vs-group rivalry lines.',
+    rivalsOnly, e => relCard(e, 'rival'),
+    'No rivalries — nobody is out to get them.');
 }
 
 function renderGroups(root, focusId) {
@@ -504,7 +581,8 @@ function renderGroups(root, focusId) {
 
       const chips = el('div', 'member-chips');
       for (const m of g.members) {
-        const c = el('button', 'member-chip', m);
+        const c = el('button', 'member-chip');
+        c.append(iconImg(m), document.createTextNode(m));
         c.addEventListener('click', () => select(m));
         chips.append(c);
       }
@@ -591,7 +669,8 @@ function renderMatrix(root) {
   for (const rowName of names) {
     const rec = state.model.ideologies.get(rowName);
     const tr = el('tr');
-    const th = el('th', null, rowName);
+    const th = el('th');
+    th.append(iconImg(rowName, 'ig-icon ig-icon-sm'), document.createTextNode(rowName));
     th.addEventListener('click', () => select(rowName));
     tr.append(th);
     for (const colName of names) {
@@ -675,6 +754,14 @@ function renderNotes(root) {
   body.append(link);
 
   const d = state.model.diagnostics;
+  if (d.levelInferred) {
+    const note = el('div', 'banner');
+    note.textContent =
+      `Heads up: the “Bond Lvl” column header wasn't found by name in the Groups tab, so the ` +
+      `level column was inferred from its contents instead (${d.levelColumn}). Levels still ` +
+      `look right below, but if that ever changes, check the column header text.`;
+    body.append(note);
+  }
   if (d.badLevels.length) {
     const warn = el('div', 'banner');
     warn.textContent =
@@ -718,7 +805,7 @@ function renderSidebar() {
     list.append(el('div', 'list-heading', cls));
     for (const r of group) {
       const b = el('button', 'ideology-btn' + (r.name === state.selected ? ' is-active' : ''));
-      b.append(el('span', null, r.name));
+      b.append(iconImg(r.name), el('span', null, r.name));
       const mini = el('span', 'mini');
       const bd = el('b', null, `+${r.bonds.size}`); bd.style.color = 'var(--bond-3)';
       const rv = el('b', null, `−${r.rivals.size}`); rv.style.color = 'var(--rival-2)';
