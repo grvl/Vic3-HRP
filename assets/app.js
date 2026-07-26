@@ -16,14 +16,14 @@ const CONFIG = {
 };
 
 const BOND_LEVELS = {
-  1: { name: 'Sympathetic',           color: 'var(--bond-1)' },
+  1: { name: 'Shared Sympathy',       color: 'var(--bond-1)' },
   2: { name: 'Strategic Alignment',   color: 'var(--bond-2)' },
   3: { name: 'Ideological Coalition', color: 'var(--bond-3)' },
-  4: { name: 'Natural Allies',        color: 'var(--bond-4)' },
+  4: { name: 'Natural Partners',      color: 'var(--bond-4)' },
 };
 const RIVAL_LEVELS = {
-  1: { name: 'Antagonism',  color: 'var(--rival-1)' },
-  2: { name: 'Existential', color: 'var(--rival-2)' },
+  1: { name: 'Antagonism',        color: 'var(--rival-1)' },
+  2: { name: 'Existential Threat', color: 'var(--rival-2)' },
 };
 
 const bondInfo  = l => BOND_LEVELS[l]  || { name: 'Bond',    color: 'var(--bond-1)' };
@@ -152,23 +152,48 @@ function columnMap(header, spec) {
   return out;
 }
 
+/**
+ * Find the real header row. The header is not always row 0 — a tab can carry a
+ * title or a note above it, and assuming row 0 silently mis-maps every column
+ * that has no positional fallback. Score the first few rows and take the best.
+ */
+function findHeader(rows, spec, maxScan = 12) {
+  let best = { index: 0, score: -1, map: columnMap(rows[0] || [], spec) };
+  for (let i = 0; i < Math.min(maxScan, rows.length); i++) {
+    const map = columnMap(rows[i], spec);
+    const score = Object.values(map).filter(v => v >= 0).length;
+    if (score > best.score) best = { index: i, score, map };
+  }
+  return best;
+}
+
+/** Pull a level out of whatever the sheet hands us: 3, "3.0", "3,0", "Level 3 — …". */
+function toLevel(v) {
+  const m = String(v == null ? '' : v).replace(',', '.').match(/\d+(?:\.\d+)?/);
+  if (!m) return null;
+  const n = Math.round(parseFloat(m[0]));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
 function normalise(raw) {
   /* ---- groups ---- */
-  const gHead = raw.groups[0] || [];
-  const gc = columnMap(gHead, {
+  const gHeader = findHeader(raw.groups, {
     id: ['id'], classification: ['classific', 'category'],
     name: ['group name', 'name'], level: ['bond', 'lvl', 'level'],
     members: ['member', 'ideolog'],
   });
+  const gHead = raw.groups[gHeader.index] || [];
+  const gc = gHeader.map;
   if (gc.id < 0) gc.id = 0;
   if (gc.name < 0) gc.name = 2;
   if (gc.members < 0) gc.members = gHead.length - 1;
 
   const groups = [];
   const groupById = new Map();
+  const badLevels = [];
   let lastClassification = '';
 
-  for (const row of raw.groups.slice(1)) {
+  for (const row of raw.groups.slice(gHeader.index + 1)) {
     const id = clean(row[gc.id]).toUpperCase();
     if (!/^G\d+/i.test(id)) continue;
 
@@ -180,7 +205,10 @@ function normalise(raw) {
     if (!members.length) continue;
 
     const name = clean(row[gc.name]) || id;
-    const level = Math.round(parseFloat(row[gc.level])) || 1;
+    const parsedLevel = gc.level >= 0 ? toLevel(row[gc.level]) : null;
+    // Don't quietly pretend an unreadable level is 1 — that hides a column mismatch.
+    if (parsedLevel == null) badLevels.push(`${id} ${name} (read “${clean(row[gc.level]) || '—'}”)`);
+    const level = parsedLevel ?? 1;
 
     // Groups are keyed on the G-id. A repeated id is the same group under another
     // name: merge the members and keep the extra name as an alias.
@@ -205,10 +233,12 @@ function normalise(raw) {
   }
 
   /* ---- rivalries (group vs group, matched on the G-id: names drift between tabs) ---- */
-  const rHead = raw.rivalries[0] || [];
-  const rc = columnMap(rHead, { id: ['id'], level: ['level', 'lvl'], a: ['side a', 'a'], b: ['side b', 'b'] });
+  const rHeader = findHeader(raw.rivalries,
+    { id: ['id'], level: ['level', 'lvl'], a: ['side a'], b: ['side b'] });
+  const rc = rHeader.map;
   if (rc.a < 0) rc.a = 2;
   if (rc.b < 0) rc.b = 3;
+  if (rc.level < 0) rc.level = 1;
 
   const sideText = v => clean(v).replace(/^vs\.?\s+/i, '');
   const sideId = v => (sideText(v).match(/^(G\d+)/i) || [])[1];
@@ -227,16 +257,12 @@ function normalise(raw) {
 
   const rivalries = [];
   const unresolved = [];
-  for (const row of raw.rivalries.slice(1)) {
+  for (const row of raw.rivalries.slice(rHeader.index + 1)) {
     const aId = sideId(row[rc.a]), bId = sideId(row[rc.b]);
     if (!aId || !bId) continue;
     const a = resolveSide(row[rc.a]), b = resolveSide(row[rc.b]);
     if (!a || !b) { unresolved.push(`${aId} vs ${bId}`); continue; }
-    rivalries.push({
-      id: clean(row[rc.id]),
-      level: parseInt((clean(row[rc.level]).match(/\d+/) || ['1'])[0], 10) || 1,
-      a, b,
-    });
+    rivalries.push({ id: clean(row[rc.id]), level: toLevel(row[rc.level]) ?? 1, a, b });
   }
 
   /* ---- per-ideology index ---- */
@@ -293,7 +319,15 @@ function normalise(raw) {
 
   const aliased = groups.filter(g => g.altNames.size);
 
-  return { groups, groupById, rivalries, ideologies, details, classOrder, unresolved, aliased };
+  return {
+    groups, groupById, rivalries, ideologies, details, classOrder, unresolved, aliased,
+    diagnostics: {
+      badLevels,
+      groupsHeaderRow: gHeader.index,
+      groupsHeader: gHead,
+      levelColumn: gc.level >= 0 ? gHead[gc.level] : null,
+    },
+  };
 }
 
 /* -------------------------------------------------------------------- state */
@@ -335,6 +369,42 @@ function relCard(entry, kind) {
   return card;
 }
 
+/** A pair that holds a bond and a rivalry at once — both levels shown side by side. */
+function frenemyCard({ name, bond, rival }) {
+  const b = bondInfo(bond.level), r = rivalInfo(rival.level);
+  const card = el('button', 'rel-card frenemy');
+  card.type = 'button';
+  card.style.setProperty('--bond-c', b.color);
+  card.style.setProperty('--rival-c', r.color);
+
+  const top = el('div', 'rel-card-top');
+  top.append(el('div', 'rel-name', name));
+  const bBadge = el('span', 'lvl-badge', 'L' + bond.level);
+  bBadge.style.setProperty('--lvl-color', b.color);
+  const rBadge = el('span', 'lvl-badge', 'R' + rival.level);
+  rBadge.style.setProperty('--lvl-color', r.color);
+  top.append(bBadge, rBadge);
+  card.append(top);
+
+  const labels = el('div', 'frenemy-labels');
+  const bl = el('span', null, b.name); bl.style.color = b.color;
+  const rl = el('span', null, r.name); rl.style.color = r.color;
+  labels.append(bl, el('span', 'sep', 'but'), rl);
+  card.append(labels);
+
+  const via = el('div', 'rel-via');
+  const bonded = [...new Set(bond.via.filter(g => g.level === bond.level).map(g => g.name))];
+  via.append(el('span', null, 'bonded via ' + bonded.join(', ')));
+  const lines = [...new Set(rival.via.filter(v => v.level === rival.level)
+    .map(v => `${v.mine.name} vs ${v.theirs.name}`))];
+  for (const l of lines.slice(0, 2)) via.append(el('span', null, 'opposed by ' + l));
+  if (lines.length > 2) via.append(el('span', null, `+${lines.length - 2} more lines`));
+  card.append(via);
+
+  card.addEventListener('click', () => select(name));
+  return card;
+}
+
 function renderIdeology(root) {
   const rec = state.model.ideologies.get(state.selected);
   if (!rec) {
@@ -347,9 +417,9 @@ function renderIdeology(root) {
   head.append(el('h1', null, rec.name));
   const bonds  = [...rec.bonds.values()].sort((a, b) => b.level - a.level || a.name.localeCompare(b.name));
   const rivals = [...rec.rivals.values()].sort((a, b) => b.level - a.level || a.name.localeCompare(b.name));
-  head.append(el('p', null,
-    `${rec.classification} · member of ${rec.groups.length} group${rec.groups.length === 1 ? '' : 's'} · ` +
-    `${bonds.length} bond${bonds.length === 1 ? '' : 's'} · ${rivals.length} rival${rivals.length === 1 ? '' : 's'}`));
+  const overlap = [...rec.bonds.keys()].filter(n => rec.rivals.has(n)).length;
+  const summary = el('p');
+  head.append(summary);
 
   const chips = el('div', 'chips');
   for (const g of [...rec.groups].sort((a, b) => b.level - a.level)) {
@@ -366,30 +436,47 @@ function renderIdeology(root) {
   root.append(head);
 
   const both = new Set([...rec.bonds.keys()].filter(n => rec.rivals.has(n)));
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  summary.textContent =
+    `${rec.classification} · ${plural(rec.groups.length, 'group')} · ` +
+    `${plural(bonds.length - overlap, 'bond')} · ${plural(rivals.length - overlap, 'rivalry').replace('rivalrys', 'rivalries')} · ` +
+    `${plural(overlap, 'frenemy').replace('frenemys', 'frenemies')}`;
 
-  const section = (title, sub, list, kind) => {
+  const bondsOnly  = bonds.filter(e => !both.has(e.name));
+  const rivalsOnly = rivals.filter(e => !both.has(e.name));
+  const frenemies  = [...both]
+    .map(n => ({ name: n, bond: rec.bonds.get(n), rival: rec.rivals.get(n) }))
+    .sort((a, b) => b.rival.level - a.rival.level || b.bond.level - a.bond.level
+                 || a.name.localeCompare(b.name));
+
+  const section = (title, sub, list, build, emptyMsg) => {
     const s = el('section', 'section');
     const h = el('div', 'section-head');
     h.append(el('h2', null, title), el('span', 'count', String(list.length)));
     s.append(h, el('p', 'section-sub', sub));
-    if (!list.length) {
-      s.append(el('div', 'callout', kind === 'bond'
-        ? 'No bonds — this ideology stands alone.'
-        : 'No rivalries — nobody is out to get them.'));
-    } else {
+    if (!list.length) s.append(el('div', 'callout', emptyMsg));
+    else {
       const grid = el('div', 'rel-grid');
-      for (const e of list) {
-        const card = relCard(e, kind);
-        if (both.has(e.name)) card.append(el('span', 'flag-both', '⚠ also a ' + (kind === 'bond' ? 'rival' : 'bond')));
-        grid.append(card);
-      }
+      for (const e of list) grid.append(build(e));
       s.append(grid);
     }
     root.append(s);
   };
 
-  section('Bonds', 'Highest shared group level wins. Click any card to jump to that ideology.', bonds, 'bond');
-  section('Rivalries', 'Inherited from group-vs-group rivalry lines. Level 2 means they want each other dead.', rivals, 'rival');
+  section('Bonds',
+    'Allies only. Highest shared group level wins — click any card to jump to that ideology.',
+    bondsOnly, e => relCard(e, 'bond'),
+    'No bonds — this ideology stands alone.');
+
+  section('Rivalries',
+    'Enemies only. Inherited from group-vs-group rivalry lines.',
+    rivalsOnly, e => relCard(e, 'rival'),
+    'No rivalries — nobody is out to get them.');
+
+  section('Frenemies',
+    'Both at once — allies on one question, enemies on another.',
+    frenemies, frenemyCard,
+    'No frenemies — every relationship here is purely one or the other.');
 }
 
 function renderGroups(root, focusId) {
@@ -586,6 +673,16 @@ function renderNotes(root) {
   link.target = '_blank';
   link.rel = 'noopener';
   body.append(link);
+
+  const d = state.model.diagnostics;
+  if (d.badLevels.length) {
+    const warn = el('div', 'banner');
+    warn.textContent =
+      `Couldn't read a bond level for ${d.badLevels.length} group(s), so they defaulted to 1. ` +
+      (d.levelColumn ? `Level column matched: “${d.levelColumn}”. ` : 'No bond-level column was found in the header row. ') +
+      `First few: ${d.badLevels.slice(0, 5).join('; ')}`;
+    body.append(warn);
+  }
 
   if (state.model.unresolved.length) {
     const warn = el('div', 'banner');

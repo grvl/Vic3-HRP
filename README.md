@@ -10,7 +10,7 @@ the sheet updates the site — no commit, no deploy.
 
 | View | What it shows |
 | --- | --- |
-| **Ideologies** | Pick one → its groups, all bonds (strongest first) and all rivalries, each annotated with the group or rivalry line it came from. Cards are clickable, so you can walk the graph. |
+| **Ideologies** | Pick one → its groups, then **Bonds** (allies only), **Rivalries** (enemies only) and **Frenemies** (both at once), each annotated with the group or rivalry line it came from. Cards are clickable, so you can walk the graph. |
 | **Groups** | Every affinity group by classification, with its bond level and members. |
 | **Rivalry lines** | The raw group-vs-group lines, split by level. |
 | **Matrix** | All ideologies against all others. Digits are bond levels, `✕` existential rivalry, `–` antagonism; split cells are both at once. |
@@ -31,10 +31,19 @@ The sheet has three tabs:
 From that:
 
 - **Bond** between two ideologies = the **highest** bond level of any group they share.
-- **Rivalry** between two ideologies = the highest level of any rivalry line connecting a
-  group one is in to a group the other is in.
-- A pair can be **both** a bond and a rivalry; those cards are flagged.
+  Levels are `1 Shared Sympathy`, `2 Strategic Alignment`, `3 Ideological Coalition`,
+  `4 Natural Partners`.
+- **Rivalry** = the highest level of any rivalry line connecting a group one is in to a
+  group the other is in. Levels are `1 Antagonism`, `2 Existential Threat`.
+- A pair can be **both** a bond and a rivalry. Those go in **Frenemies**, and are excluded
+  from Bonds and Rivalries so the three sections never overlap.
 - An ideology is never made a rival of itself, even if it sits in groups on both sides.
+
+The header row is located by scanning the first rows for the best column-name match, so a
+title or note above the header doesn't shift the columns. If a bond level still can't be
+read it defaults to 1 **and says so** in a banner on the Notes tab, naming the groups and
+the raw cell value it saw — a silent default here is what makes every group look like
+level 1.
 
 ### Groups are matched by ID
 
