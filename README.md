@@ -1,39 +1,7 @@
-# Victoria 3 HRP — The Shattered Congress
+# Victoria 3 — Ideology Affinity Groups
 
-`index.html` is the site's landing page: a static intro plus two tabs, **Ideologies**
-and **Lore & Timeline**. Everything is still plain HTML/CSS/JS with no build step.
-
-- **Ideologies** embeds `ideologies.html` (the affinity-group visualizer below) in an
-  iframe, so that page still works perfectly on its own if linked to directly.
-- **Lore & Timeline** renders `data/lore.json` — a side index of every entry's title, a
-  horizontally-scrolling date bar across the top for quick timeline navigation, and the
-  full articles. Both the index and the timeline bar stay in sync with scroll position
-  and jump to an entry when clicked. Fully responsive: the index collapses into the same
-  slide-out drawer pattern the ideology visualizer uses on narrow screens (☰ button).
-
-## Updating the lore
-
-The lore is data, not hand-written HTML, so a new upload doesn't require touching the
-page code:
-
-1. Add or edit an entry object in `data/lore.json`. Each entry has `id`, `number`,
-   `title`, `dateline` (display string), `dateSort` (`YYYY-MM-DD`, used to order the
-   timeline), `publication`, `byline`, and `body` — an array of either HTML paragraph
-   strings or `{ "type": "image", "src": "...", "caption": "...", "alt": "..." }` objects
-   for inline images.
-2. Drop any images in `assets/lore/` and reference them by filename in `src`.
-3. Reload — `assets/lore.js` fetches the JSON at page load and rebuilds the index,
-   timeline, and articles from it.
-
-When given a `.docx` file or a Google Docs link for a new entry, convert its text and
-any embedded images into that same `lore.json` + `assets/lore/` shape (extracting images
-from the docx package or exporting them from the Doc) rather than pasting raw markup.
-
-## Victoria 3 — Ideology Affinity Groups
-
-A static, no-build visualizer for the Victoria 3 character-ideology affinity sheet, at
-`ideologies.html`. Pick an ideology and see every bond and rivalry it inherits from the
-groups it belongs to.
+A static, no-build visualizer for the Victoria 3 character-ideology affinity sheet.
+Pick an ideology and see every bond and rivalry it inherits from the groups it belongs to.
 
 **The spreadsheet is the source of truth.** The page reads it on every load, so editing
 the sheet updates the site — no commit, no deploy.
@@ -189,18 +157,12 @@ python3 -c "from PIL import Image; Image.open('assets/ideology_leader/NAME.dds')
 ## Files
 
 ```
-index.html                 landing page: intro + Ideologies/Lore tabs
-ideologies.html            the ideology affinity visualizer (markup + shell)
-assets/home.css            landing page + lore view theming/layout
-assets/home.js             tab switching, theme toggle, shared with the iframe
-assets/lore.js             fetch data/lore.json → render index/timeline/articles
-assets/styles.css          shared tokens + ideologies.html theming/layout
-assets/app.js              fetch → CSV parse → normalise → render (ideologies.html)
+index.html                 markup + shell
+assets/styles.css          theming, layout, responsive rules
+assets/app.js              fetch → CSV parse → normalise → render
 assets/icons/              ideology icons (web-ready PNGs)
 assets/ideology_leader/    source .dds textures for the icons above
-assets/lore/               images referenced from data/lore.json
-data/lore.json             the war lore/timeline entries
-data/snapshot.json         offline fallback copy of the ideology sheet
+data/snapshot.json         offline fallback copy of the sheet
 data/law-stances.json      per-ideology law stances, extracted from the game files
 ```
 
